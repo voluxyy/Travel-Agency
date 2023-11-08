@@ -100,7 +100,7 @@ namespace LasserreDetresTravelAgency.Business.Service
                 Capital = Destination.Capital,
                 ToDo = Destination.ToDo.Split(", "),
                 NbVisited = (Destination.Visits != null) ? Destination.Visits.Count() : 0,
-                AverageRate = (Destination.Comments != null) ? Destination.Comments.Count() : 0,
+                AverageRate = (Destination.Rates != null) ? Destination.Rates.Count() : 0,
                 Commentaries = (Destination.Comments != null) ? ConvertCollectionToCommentDisplayed(Destination.Comments) : null,
             };
 
