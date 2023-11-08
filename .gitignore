@@ -1,0 +1,15 @@
+# Exclude all files in first solution
+/LasserreDetresTravelAgency/.vs
+/LasserreDetresTravelAgency/bin
+/LasserreDetresTravelAgency/obj
+/LasserreDetresTravelAgency/Pages
+/LasserreDetresTravelAgency/properties
+/LasserreDetresTravelAgency/wwwroot
+
+# Exclude all files in second solution
+/LasserreDetresTravelAgency.Business/bin
+/LasserreDetresTravelAgency.Business/obj
+
+# Exclude all files in third solution
+/LasserreDetresTravelAgency.Data/bin
+/LasserreDetresTravelAgency.Data/obj
