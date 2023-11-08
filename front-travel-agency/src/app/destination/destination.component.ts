@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./destination.component.sass']
 })
 export class DestinationComponent {
-
+  @Input() imgLink!: string;
 }
