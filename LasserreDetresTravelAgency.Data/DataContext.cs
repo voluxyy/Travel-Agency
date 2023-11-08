@@ -19,6 +19,7 @@ namespace LasserreDetresTravelAgency.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Rate> Rates { get; set; }
         public DbSet<Visit> Visits { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
