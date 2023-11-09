@@ -36,8 +36,9 @@
 </div>
 
 <!-- Destinations -->
-<div class="destinations-container" *ngFor="let destination of destinations">
+<div class="destinations-container" *ngFor="let dest of destinations">
     <div>
-        <p>{{destination}}</p>
+        <p>{{dest.city}}</p>
+        <p>{{dest.country}}</p>
     </div>
 </div>

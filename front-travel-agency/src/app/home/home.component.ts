@@ -17,6 +17,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.get<any>(this.target+"/api/Destination/all")
-    .subscribe(resp => console.log(resp));
+    .subscribe(resp => this.destinations = resp);
   }
 }
