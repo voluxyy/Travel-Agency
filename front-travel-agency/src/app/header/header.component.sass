@@ -1,0 +1,51 @@
+$primary-color: #0B203D
+
+.head
+    margin-top: 50px
+    display: grid
+    grid-template-columns: repeat(12,1fr)
+    gap: .5%
+
+.logo
+    grid-area: 1/2/1/3
+
+.searchbar
+    display: flex
+    flex-direction: row
+    grid-area: 1/6/1/8
+
+    border: 1px solid $primary-color
+    border-radius: 50px
+
+#searchbar
+    margin-left: 20px
+    border-radius: 50px
+    border: none
+    outline: none
+    overflow: hidden
+
+#searchbar-icon
+    margin-left: 20px
+    width: 1.5em
+    height: auto
+
+a
+    text-decoration: none
+
+.login-button
+    grid-area: 1/10/1/10
+    color: $primary-color
+
+.signup-button
+    grid-area: 1/11/1/11
+    background-color: $primary-color
+    color: white
+    border-radius: 5px
+
+.login-button, .signup-button
+    display: flex
+    align-items: center
+    justify-content: center
+    text-align: center
+    text-decoration: none
+
