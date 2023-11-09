@@ -19,6 +19,7 @@ builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ICommentService, CommentService>();
 builder.Services.AddTransient<IRateService, RateService>();
 builder.Services.AddTransient<IVisitService, VisitService>();
+builder.Services.AddTransient<ICategoryService, CategoryService>();
 
 // Link Repositories and their interfaces
 builder.Services.AddTransient<IDestinationRepository, DestinationRepository>();
@@ -26,6 +27,7 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<ICommentRepository, CommentRepository>();
 builder.Services.AddTransient<IRateRepository, RateRepository>();
 builder.Services.AddTransient<IVisitRepository, VisitRepository>();
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 
 var app = builder.Build();
 
