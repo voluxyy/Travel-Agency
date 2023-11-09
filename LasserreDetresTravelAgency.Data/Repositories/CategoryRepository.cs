@@ -48,9 +48,9 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return await _context.Categories.FindAsync(id);
         }
-        public List<Category> GetAllByCategory(string category)
+        public List<Category> GetAll()
         {
-            return _context.Categories.Where(x => x.NameCategory == category).ToList();
+            return _context.Categories.ToList();
         }
 
     }
