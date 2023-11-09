@@ -24,4 +24,6 @@ namespace LasserreDetresTravelAgency.Business
         public string UserName { get; set; }
         public string Comment { get; set; }
     }
+
+
 }
