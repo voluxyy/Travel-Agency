@@ -10,37 +10,47 @@ $primary-color: #0B203D
     grid-area: 1/2/1/3
 
 .searchbar
-    display: flex
-    flex-direction: row
     grid-area: 1/6/1/8
+    position: relative
 
-    border: 1px solid $primary-color
-    border-radius: 50px
+    display: flex
 
 #searchbar
-    margin-left: 20px
-    border-radius: 50px
-    border: none
-    outline: none
-    overflow: hidden
+    padding-left: 3em
+    font-size: 1em
+    font-weight: 600
+    height: 35px
+    margin-top: 10px
 
-#searchbar-icon
-    margin-left: 20px
-    width: 1.5em
-    height: auto
+    border: 2px solid $primary-color
+    border-radius: 50px
+
+    background-image: url('../../assets/search.svg')
+    background-repeat: no-repeat
+    background-position: 1em center
+    background-size: 1.5em
 
 a
     text-decoration: none
 
-.login-button
+#login-link 
     grid-area: 1/10/1/10
+    
+.login-button
     color: $primary-color
 
-.signup-button
+    &:hover
+        background-color: #eaeaea
+
+#signup-link
     grid-area: 1/11/1/11
+
+.signup-button
     background-color: $primary-color
     color: white
-    border-radius: 5px
+    
+    &:hover
+        background-color: #2B425F
 
 .login-button, .signup-button
     display: flex
@@ -48,4 +58,5 @@ a
     justify-content: center
     text-align: center
     text-decoration: none
-
+    border-radius: 5px
+    height: 100%
