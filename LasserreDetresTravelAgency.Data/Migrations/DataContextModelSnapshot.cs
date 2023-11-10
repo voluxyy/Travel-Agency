@@ -102,6 +102,9 @@ namespace LasserreDetresTravelAgency.Data.Migrations
                     b.Property<int>("CountryId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("EventId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("ToDo")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -112,7 +115,31 @@ namespace LasserreDetresTravelAgency.Data.Migrations
 
                     b.HasIndex("CountryId");
 
+                    b.HasIndex("EventId");
+
                     b.ToTable("Destinations");
+                });
+
+            modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Event", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Favory", b =>
@@ -245,6 +272,10 @@ namespace LasserreDetresTravelAgency.Data.Migrations
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("LasserreDetresTravelAgency.Data.Models.Event", null)
+                        .WithMany("Destinations")
+                        .HasForeignKey("EventId");
                 });
 
             modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Favory", b =>
@@ -311,6 +342,11 @@ namespace LasserreDetresTravelAgency.Data.Migrations
                     b.Navigation("Rates");
 
                     b.Navigation("Visits");
+                });
+
+            modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Event", b =>
+                {
+                    b.Navigation("Destinations");
                 });
 
             modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.User", b =>
