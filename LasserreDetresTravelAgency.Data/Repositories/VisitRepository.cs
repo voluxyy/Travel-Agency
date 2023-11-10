@@ -47,5 +47,10 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return _context.Visits.ToList();
         }
+
+        public List<Visit> GetAllVisited()
+        {
+            return _context.Visits.Where(x => x.IsVisited).ToList();
+        }
     }
 }

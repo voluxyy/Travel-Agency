@@ -14,9 +14,11 @@ namespace LasserreDetresTravelAgency.Business.Service
     public class DestinationService : IDestinationService
     {
         private readonly IDestinationRepository destinationRepository;
-        public DestinationService(IDestinationRepository repository)
+        private readonly IVisitRepository visitRepository;
+        public DestinationService(IDestinationRepository repository, IVisitRepository visit)
         {
             this.destinationRepository = repository;
+            this.visitRepository = visit;
         }
 
         /// <summary>
@@ -83,6 +85,18 @@ namespace LasserreDetresTravelAgency.Business.Service
         {
             List<Comment> comments = destinationRepository.GetComments(id);
             return comments;
+        }
+
+        public List<DestinationDto> GetAllVisited()
+        {
+            List<Visit> visited = visitRepository.GetAllVisited();
+            Console.WriteLine(visited.Count());
+            List<DestinationDto> destinations = new List<DestinationDto>();
+            foreach (Visit visit in visited)
+            {
+                destinations.Add(ModelToDto(destinationRepository.Get(visit.DestinationId).Result));
+            }
+            return destinations;
         }
 
         /// <summary>

@@ -72,7 +72,7 @@ namespace LasserreDetresTravelAgency.Business.Service
                 Id = Evenement.Id,
                 Title = Evenement.Title,
                 Description = Evenement.Description,
-                Destinations = (Evenement.Destinations != null) ? Evenement.Destinations : null ,
+                DestinationId = Evenement.DestinationId,
             };
 
             return EventDto;
@@ -85,7 +85,7 @@ namespace LasserreDetresTravelAgency.Business.Service
                 Id = EventDto.Id,
                 Title = EventDto.Title,
                 Description = EventDto.Description,
-                Destinations = null,
+                DestinationId = EventDto.DestinationId,
             };
 
             return Event;

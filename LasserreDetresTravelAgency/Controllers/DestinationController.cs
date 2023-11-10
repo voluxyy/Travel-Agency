@@ -134,8 +134,20 @@ namespace LasserreDetresTravelAgency
         {
             try
             {
-                Console.WriteLine("GetAll");
                 return this.service.GetAll();
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("all-visited")]
+        public ActionResult<List<DestinationDto>> GetAllVisited()
+        {
+            try
+            {
+                return this.service.GetAllVisited();
             }
             catch (Exception)
             {
