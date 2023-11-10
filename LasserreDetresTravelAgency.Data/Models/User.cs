@@ -17,5 +17,6 @@ namespace LasserreDetresTravelAgency.Data.Models
         public ICollection<Rate> Rates { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Visit> Visits { get; set; }
+        public ICollection<Favory> Favories { get; set; }
     }
 }

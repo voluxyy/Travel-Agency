@@ -10,7 +10,7 @@ namespace LasserreDetresTravelAgency.Business
     public class DestinationDto
     {
         public int Id { get; set; }
-        public string Country { get; set; }
+        public int CountryId { get; set; }
         public string City { get; set; }
         public bool Capital { get; set; }
         public string[] ToDo { get; set; }
@@ -24,4 +24,6 @@ namespace LasserreDetresTravelAgency.Business
         public string UserName { get; set; }
         public string Comment { get; set; }
     }
+
+
 }
