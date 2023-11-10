@@ -55,5 +55,14 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return _context.Travels.ToList();
         }
+
+        public List<Travels> GetAllFutureTravels()
+        {
+            return _context.Travels.Where(x => x.DateStart).ToList();
+        }
+        public List<Travels> GetAllPasteTravels()
+        {
+            return _context.Travels.Where(x => DateTime.TryParse(x.DateStart)).ToList();
+        }
     }
 }
