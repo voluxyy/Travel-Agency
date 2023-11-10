@@ -15,7 +15,7 @@ namespace LasserreDetresTravelAgency.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.12");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
 
             modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Category", b =>
                 {
@@ -61,6 +61,25 @@ namespace LasserreDetresTravelAgency.Data.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+                });
+
             modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Destination", b =>
                 {
                     b.Property<int>("Id")
@@ -80,9 +99,8 @@ namespace LasserreDetresTravelAgency.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CountryId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("ToDo")
                         .IsRequired()
@@ -91,6 +109,8 @@ namespace LasserreDetresTravelAgency.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("Destinations");
                 });
@@ -219,6 +239,12 @@ namespace LasserreDetresTravelAgency.Data.Migrations
                     b.HasOne("LasserreDetresTravelAgency.Data.Models.Category", null)
                         .WithMany("Destinations")
                         .HasForeignKey("CategoryId");
+
+                    b.HasOne("LasserreDetresTravelAgency.Data.Models.Country", null)
+                        .WithMany("destinations")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Favory", b =>
@@ -269,6 +295,11 @@ namespace LasserreDetresTravelAgency.Data.Migrations
             modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Category", b =>
                 {
                     b.Navigation("Destinations");
+                });
+
+            modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Country", b =>
+                {
+                    b.Navigation("destinations");
                 });
 
             modelBuilder.Entity("LasserreDetresTravelAgency.Data.Models.Destination", b =>

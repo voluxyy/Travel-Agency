@@ -1,10 +1,12 @@
 using LasserreDetresTravelAgency.Business;
 using LasserreDetresTravelAgency.Business.Service;
 using LasserreDetresTravelAgency.Data.Models;
+using System.Web.Http.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LasserreDetresTravelAgency
 {
+    [EnableCors(origins: "*", headers: "*", methods: "get, post, put, delete")]
     [Route("/api/[controller]")]
     [ApiController]
     public class CommentController : ControllerBase

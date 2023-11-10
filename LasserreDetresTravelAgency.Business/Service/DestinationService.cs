@@ -95,7 +95,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             DestinationDto DestinationDto = new DestinationDto
             {
                 Id = Destination.Id,
-                Country = Destination.Country,
+                CountryId = Destination.CountryId,
                 City = Destination.City,
                 Capital = Destination.Capital,
                 ToDo = Destination.ToDo.Split(", "),
@@ -117,7 +117,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             Destination Destination = new Destination
             {
                 Id = DestinationDto.Id,
-                Country = DestinationDto.Country,
+                CountryId = DestinationDto.CountryId,
                 City = DestinationDto.City,
                 Capital = DestinationDto.Capital,
                 ToDo = ConvertTableToString(DestinationDto.ToDo),
