@@ -54,32 +54,10 @@ namespace LasserreDetresTravelAgency.Business.Service
             return userDto;
         }
 
-        public List<UserDto> GetAllMinorTravelers(UserDto user)
+        public List<UserDto> GetAllMinorTravelers()
         {
             List<User> users = userRepository.GetAllMinorTravelers();
-            List<UserDto> usersDto = new List<UserDto>();
-
-            if (ConvertDateOnlyToInt(user.Birthday) >= 18) 
-            {
-                foreach (User people in users)
-                {
-                    usersDto.Add(ModelToDto(people));
-                }
-            }
-            return usersDto;
-            
-        }
-
-        public int ConvertDateOnlyToInt(DateOnly birthday)
-        {
-            DateOnly currentDate = DateOnly.FromDateTime(DateTime.Today); ;
-            int age = currentDate.Year - birthday.Year;
-
-            if (birthday.DayOfYear > currentDate.DayOfYear)
-            {
-                age--;
-            }
-            return age;
+            return ListModelToDto(users);            
         }
 
         private User DtoToModel(UserDto dto)

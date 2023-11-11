@@ -1,4 +1,5 @@
 using LasserreDetresTravelAgency.Data.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LasserreDetresTravelAgency.Data.Repositories
 {
@@ -48,7 +49,11 @@ namespace LasserreDetresTravelAgency.Data.Repositories
 
         public List<User> GetAllMinorTravelers()
         {
-            return _context.Users.Where(x => x.Birthday.DayNumber / 365 < 18).ToList();
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+            
+            return _context.Users
+            .Where(x => x.Birthday.AddYears(18) > today)
+            .ToList();
         }
     }
 }
