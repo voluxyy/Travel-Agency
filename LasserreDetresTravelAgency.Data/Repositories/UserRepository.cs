@@ -45,5 +45,10 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return _context.Users.ToList();
         }
+
+        public List<User> GetAllMinorTravelers()
+        {
+            return _context.Users.Where(x =>Convert.ToBoolean(x.Birthday)).ToList();
+        }
     }
 }
