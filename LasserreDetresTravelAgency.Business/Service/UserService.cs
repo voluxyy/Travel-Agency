@@ -54,7 +54,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             return userDto;
         }
 
-        public List<UserDto> GetAllMinorTravelers(User user)
+        public List<UserDto> GetAllMinorTravelers(UserDto user)
         {
             List<User> users = userRepository.GetAllMinorTravelers();
             List<UserDto> usersDto = new List<UserDto>();

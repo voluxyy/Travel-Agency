@@ -54,6 +54,24 @@ namespace LasserreDetresTravelAgency.Business.Service
             return evenementDto;
         }
 
+        public List<EventDto> GetAllEventByDest(DestinationDto destination)
+        {
+            List<Event> evenement = eventRepository.GetAllEventByDest();
+            List<EventDto> eventDtos = new List<EventDto>();
+
+            string userInput = Console.ReadLine();
+
+            foreach (Event evt in evenement)
+            {
+
+                if (destination.City == userInput)
+                {
+                    eventDtos.Add(ModelToDto(evt));
+                }
+            }
+            return eventDtos;
+        }
+
         private List<EventDto> ListModelToDto(List<Event> evenement)
         {
             List<EventDto> eventDto = new List<EventDto>();

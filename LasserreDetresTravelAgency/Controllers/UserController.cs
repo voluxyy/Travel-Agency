@@ -109,11 +109,11 @@ namespace LasserreDetresTravelAgency
         }
 
         [HttpGet("all-minor-travelers")]
-        public ActionResult<List<UserDto>> GetAllMinorTravelers()
+        public ActionResult<List<UserDto>> GetAllMinorTravelers(UserDto dto)
         {
             try
             {
-                return this.service.GetAll();
+                return this.service.GetAllMinorTravelers(dto);
             }
             catch (Exception)
             {

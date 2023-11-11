@@ -55,5 +55,10 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return _context.Events.ToList();
         }
+
+        public List<Event> GetAllEventByDest()
+        {
+            return _context.Events.Where(x => Convert.ToBoolean(x.Title)).ToList();
+        }
     }
 }

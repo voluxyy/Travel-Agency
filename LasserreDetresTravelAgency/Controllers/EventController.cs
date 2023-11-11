@@ -103,8 +103,21 @@ namespace LasserreDetresTravelAgency.Controllers
         {
             try
             {
-                Console.WriteLine("GetAll");
                 return this.service.GetAll();
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(500, "Internal server error");
+            }
+        }
+
+
+        [HttpGet("all-events-by-destination")]
+        public ActionResult<List<EventDto>> GetAllEventByDest(DestinationDto dto)
+        {
+            try
+            {
+                return this.service.GetAllEventByDest(dto);
             }
             catch (Exception)
             {
