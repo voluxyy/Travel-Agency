@@ -1,24 +1,21 @@
-﻿using LasserreDetresTravelAgency.Business.Service;
-using LasserreDetresTravelAgency.Business;
+﻿using LasserreDetresTravelAgency.Business.Dto;
+using LasserreDetresTravelAgency.Business.Service;
 using Microsoft.AspNetCore.Mvc;
-using LasserreDetresTravelAgency.Business.Dto;
 
 namespace LasserreDetresTravelAgency.Controllers
 {
     [Route("/api/[controller]")]
     [ApiController]
-    public class EventController : ControllerBase
+    public class TravelsController : ControllerBase
     {
-        private readonly IEventService service;
-
-        public EventController(IEventService service)
+        private readonly ITravelsService service;
+        public TravelsController(ITravelsService service)
         {
             this.service = service;
         }
 
-        
         [HttpPost]
-        public async Task<ActionResult<EventDto>> Add([FromBody] EventDto dto)
+        public async Task<ActionResult<TravelsDto>> Add([FromBody] TravelsDto dto)
         {
             try
             {
@@ -31,38 +28,34 @@ namespace LasserreDetresTravelAgency.Controllers
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
-        
         [HttpGet("{id}")]
-        public async Task<ActionResult<EventDto>> Get(int id)
+        public async Task<ActionResult<TravelsDto>> Get(int id)
         {
             if (id <= default(int))
             {
                 return NotFound();
             }
-
             try
             {
                 return await this.service.Get(id);
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
-        
         [HttpPut("{id}")]
-        public async Task<ActionResult<EventDto>> Update(int id, EventDto dto)
+        public async Task<ActionResult<TravelsDto>> Update(int id, TravelsDto dto)
         {
             if (id <= default(int))
             {
                 return NotFound();
             }
-
             try
             {
                 return await this.service.Update(dto);
@@ -73,11 +66,10 @@ namespace LasserreDetresTravelAgency.Controllers
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
-       
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -85,7 +77,6 @@ namespace LasserreDetresTravelAgency.Controllers
             {
                 return NotFound();
             }
-
             try
             {
                 await this.service.Delete(id);
@@ -93,35 +84,49 @@ namespace LasserreDetresTravelAgency.Controllers
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
-        
         [HttpGet("all")]
-        public ActionResult<List<EventDto>> GetAll()
+        public ActionResult<List<TravelsDto>> GetAll()
         {
             try
             {
                 return this.service.GetAll();
+
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
-
-        [HttpGet("all-events-by-destination")]
-        public ActionResult<List<EventDto>> GetAllEventByDest(int id)
+        [HttpGet("all-future-date")]
+        public ActionResult<List<TravelsDto>> GetAllGetAllFutureTravels()
         {
             try
             {
-                return this.service.GetAllEventByDest(id);
+                return this.service.GetAllFutureTravels();
+
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        [HttpGet("all-paste-date")]
+        public ActionResult<List<TravelsDto>> GetAllPasteTravels()
+        {
+            try
+            {
+                return this.service.GetAllPasteTravels();
+
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
     }

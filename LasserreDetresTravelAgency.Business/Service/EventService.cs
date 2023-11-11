@@ -54,6 +54,12 @@ namespace LasserreDetresTravelAgency.Business.Service
             return evenementDto;
         }
 
+        public List<EventDto> GetAllEventByDest(int id)
+        {
+            List<Event> events = eventRepository.GetAllEventByDest(id);
+            return ListModelToDto(events);
+        }
+
         private List<EventDto> ListModelToDto(List<Event> evenement)
         {
             List<EventDto> eventDto = new List<EventDto>();
@@ -72,6 +78,7 @@ namespace LasserreDetresTravelAgency.Business.Service
                 Id = Evenement.Id,
                 Title = Evenement.Title,
                 Description = Evenement.Description,
+                Date = Evenement.Date,
                 DestinationId = Evenement.DestinationId,
             };
 
@@ -85,6 +92,7 @@ namespace LasserreDetresTravelAgency.Business.Service
                 Id = EventDto.Id,
                 Title = EventDto.Title,
                 Description = EventDto.Description,
+                Date = EventDto.Date,
                 DestinationId = EventDto.DestinationId,
             };
 

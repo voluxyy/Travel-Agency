@@ -23,6 +23,7 @@ namespace LasserreDetresTravelAgency.Data
         public DbSet<Country> Countries { get; set; }
         public DbSet<Favory> Favories { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<Travels> Travels { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

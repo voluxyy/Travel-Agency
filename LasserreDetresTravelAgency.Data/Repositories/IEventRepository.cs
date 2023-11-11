@@ -9,5 +9,6 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         Task<Event> Get(int id);
         List<Event> GetAll();
         Task<Event> Update(Event evenement);
+        List<Event> GetAllEventByDest(int id);
     }
 }
