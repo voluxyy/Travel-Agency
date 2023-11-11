@@ -13,6 +13,6 @@ namespace LasserreDetresTravelAgency.Business.Dto
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
-        public ICollection<Destination>? Destinations { get; set; }
+        public int DestinationId { get; set; }
     }
 }

@@ -101,5 +101,33 @@ namespace LasserreDetresTravelAgency.Controllers
                 return this.StatusCode(500, "Internal Server Error");
             }
         }
+
+        [HttpGet("all-future-date")]
+        public ActionResult<List<TravelsDto>> GetAllGetAllFutureTravels()
+        {
+            try
+            {
+                return this.service.GetAllFutureTravels();
+
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(500, "Internal Server Error");
+            }
+        }
+
+        [HttpGet("all-paste-date")]
+        public ActionResult<List<TravelsDto>> GetAllPasteTravels()
+        {
+            try
+            {
+                return this.service.GetAllPasteTravels();
+
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(500, "Internal Server Error");
+            }
+        }
     }
 }

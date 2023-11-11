@@ -9,5 +9,7 @@ namespace LasserreDetresTravelAgency.Business.Service
         Task<TravelsDto> Get(int id);
         List<TravelsDto> GetAll();
         Task<TravelsDto> Update(TravelsDto dto);
+        List<TravelsDto> GetAllFutureTravels();
+        List<TravelsDto> GetAllPasteTravels();
     }
 }
