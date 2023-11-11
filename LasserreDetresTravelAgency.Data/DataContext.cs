@@ -21,6 +21,7 @@ namespace LasserreDetresTravelAgency.Data
         public DbSet<Visit> Visits { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<Continent> Continents { get; set; }
         public DbSet<Favory> Favories { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Travels> Travels { get; set; }
