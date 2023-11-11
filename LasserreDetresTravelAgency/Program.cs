@@ -24,6 +24,7 @@ builder.Services.AddTransient<IFavoryService, FavoryService>();
 builder.Services.AddTransient<ICountryService, CountryService>();
 builder.Services.AddTransient<IEventService, EventService>();
 builder.Services.AddTransient<ITravelsService, TravelsService>();
+builder.Services.AddTransient<IContinentService, ContinentService>();
 
 // Link Repositories and their interfaces
 builder.Services.AddTransient<IDestinationRepository, DestinationRepository>();
@@ -36,6 +37,7 @@ builder.Services.AddTransient<IFavoryRepository, FavoryRepository>();
 builder.Services.AddTransient<ICountryRepository, CountryRepository>();
 builder.Services.AddTransient<IEventRepository, EventRepository>();
 builder.Services.AddTransient<ITravelsRepository, TravelsRepository>();
+builder.Services.AddTransient<IContinentRepository, ContinentRepository>();
 
 var app = builder.Build();
 app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
