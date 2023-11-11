@@ -48,7 +48,7 @@ namespace LasserreDetresTravelAgency.Data.Repositories
 
         public List<User> GetAllMinorTravelers()
         {
-            return _context.Users.Where(x =>Convert.ToBoolean(x.Birthday)).ToList();
+            return _context.Users.Where(x => x.Birthday.DayNumber / 365 < 18).ToList();
         }
     }
 }

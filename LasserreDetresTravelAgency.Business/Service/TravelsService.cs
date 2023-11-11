@@ -57,38 +57,14 @@ namespace LasserreDetresTravelAgency.Business.Service
         
         public List<TravelsDto> GetAllFutureTravels()
         {
-            DateTime now = DateTime.Now;
-            DateTime future = DateTime.Now.AddDays(2);
-
-            List<Travels> futurTravels = travelsRepository.GetAllFutureTravels();
-            List<TravelsDto> travelsDto = new List<TravelsDto>();
-
-            if (now < future )
-            {
-                foreach(Travels trav in travelsRepository.GetAll())
-                {
-                    travelsDto.Add(ModelToDto(travelsRepository.Get(trav.Id).Result));
-                }
-            }
-            return travelsDto;
+            List<Travels> travels = travelsRepository.GetAllFutureTravels();
+            return ListModelToDto(travels);
         }
 
         public List<TravelsDto> GetAllPasteTravels()
         {
-            DateTime now = DateTime.Now;
-            DateTime past = DateTime.Now.AddDays(-2);
-
-            List<Travels> travels = travelsRepository.GetAllFutureTravels();
-            List<TravelsDto> travelsDto = new List<TravelsDto>();
-
-            if (now > past)
-            {
-                foreach (Travels trav in travelsRepository.GetAll())
-                {
-                    travelsDto.Add(ModelToDto(travelsRepository.Get(trav.Id).Result));
-                }
-            }
-            return travelsDto;
+            List<Travels> travels = travelsRepository.GetAllPasteTravels();
+            return ListModelToDto(travels);
         }
 
         private List<TravelsDto> ListModelToDto(List<Travels> travels)

@@ -58,11 +58,11 @@ namespace LasserreDetresTravelAgency.Data.Repositories
 
         public List<Travels> GetAllFutureTravels()
         {
-            return _context.Travels.Where(x => Convert.ToBoolean(x.DestinationId)).ToList();
+            return _context.Travels.Where(x => x.DateStart > DateTime.Now).ToList();
         }
         public List<Travels> GetAllPasteTravels()
         {
-            return _context.Travels.Where(x => Convert.ToBoolean(x.DestinationId)).ToList();
+            return _context.Travels.Where(x => x.DateStart < DateTime.Now).ToList();
         }
     }
 }

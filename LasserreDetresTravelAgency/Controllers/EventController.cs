@@ -113,11 +113,11 @@ namespace LasserreDetresTravelAgency.Controllers
 
 
         [HttpGet("all-events-by-destination")]
-        public ActionResult<List<EventDto>> GetAllEventByDest(DestinationDto dto)
+        public ActionResult<List<EventDto>> GetAllEventByDest(int id)
         {
             try
             {
-                return this.service.GetAllEventByDest(dto);
+                return this.service.GetAllEventByDest(id);
             }
             catch (Exception)
             {

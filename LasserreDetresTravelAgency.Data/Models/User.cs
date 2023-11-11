@@ -18,6 +18,6 @@ namespace LasserreDetresTravelAgency.Data.Models
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Visit> Visits { get; set; }
         public ICollection<Favory> Favories { get; set; }
-        public ICollection<Travels> Travelers { get; set; }
+        public ICollection<Travels> Travels { get; set; }
     }
 }
