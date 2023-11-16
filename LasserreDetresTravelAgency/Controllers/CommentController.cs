@@ -1,6 +1,6 @@
 using LasserreDetresTravelAgency.Business;
 using LasserreDetresTravelAgency.Business.Service;
-using LasserreDetresTravelAgency.Data.Models;
+
 using System.Web.Http.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -101,6 +101,19 @@ namespace LasserreDetresTravelAgency
             try
             {
                 return this.service.GetAll();
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("all-by-destination-id/{id}")]
+        public ActionResult<List<CommentDto>> GetAllByDestinationId(int id)
+        {
+            try
+            {
+                return this.service.GetAllByDestinationId(id);
             }
             catch (Exception)
             {

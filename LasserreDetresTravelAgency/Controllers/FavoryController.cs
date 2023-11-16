@@ -1,5 +1,4 @@
-﻿using LasserreDetresTravelAgency.Business;
-using LasserreDetresTravelAgency.Business.Dto;
+﻿using LasserreDetresTravelAgency.Business.Dto;
 using LasserreDetresTravelAgency.Business.Service;
 using Microsoft.AspNetCore.Mvc;
 

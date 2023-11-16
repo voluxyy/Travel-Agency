@@ -1,24 +1,22 @@
-using LasserreDetresTravelAgency.Business;
+using LasserreDetresTravelAgency.Business.Dto;
 using LasserreDetresTravelAgency.Business.Service;
-using System.Web.Http.Cors;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LasserreDetresTravelAgency
+namespace LasserreDetresTravelAgency.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "get, post, put, delete")]
     [Route("/api/[controller]")]
     [ApiController]
-    public class CountryController : ControllerBase
+    public class TravelTypeController : ControllerBase
     {
-        private readonly ICountryService service;
-        
-        public CountryController(ICountryService service)
+        private readonly ITravelTypeService service;
+
+        public TravelTypeController(ITravelTypeService service)
         {
             this.service = service;
         }
 
         [HttpPost]
-        public async Task<ActionResult<CountryDto>> Add([FromBody] CountryDto dto)
+        public async Task<ActionResult<TravelTypeDto>> Add([FromBody] TravelTypeDto dto)
         {
             try
             {
@@ -31,47 +29,45 @@ namespace LasserreDetresTravelAgency
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CountryDto>> Get(int id)
+        public async Task<ActionResult<TravelTypeDto>> Get(int id)
         {
             if (id <= default(int))
             {
                 return NotFound();
             }
-
             try
             {
                 return await this.service.Get(id);
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<CountryDto>> Update(int id, CountryDto dto)
+        public async Task<ActionResult<TravelTypeDto>> Update(int id, TravelTypeDto dto)
         {
             if (id <= default(int))
             {
                 return NotFound();
             }
-
             try
             {
                 return await this.service.Update(dto);
             }
-            catch (ArgumentNullException)
+            catch(ArgumentNullException)
             {
                 return this.ValidationProblem();
             }
-            catch (Exception)
+            catch(Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
@@ -82,7 +78,6 @@ namespace LasserreDetresTravelAgency
             {
                 return NotFound();
             }
-
             try
             {
                 await this.service.Delete(id);
@@ -90,20 +85,21 @@ namespace LasserreDetresTravelAgency
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
 
         [HttpGet("all")]
-        public ActionResult<List<CountryDto>> GetAll()
+        public ActionResult<List<TravelTypeDto>> GetAll() 
         {
             try
             {
                 return this.service.GetAll();
+
             }
             catch (Exception)
             {
-                return this.StatusCode(500, "Internal server error");
+                return this.StatusCode(500, "Internal Server Error");
             }
         }
     }
