@@ -48,5 +48,10 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return _context.Comments.ToList();
         }
+
+        public List<Comment> GetAllByDestinationId(int id)
+        {
+            return _context.Comments.Where(x => x.DestinationId == id).ToList();
+        }
     }
 }

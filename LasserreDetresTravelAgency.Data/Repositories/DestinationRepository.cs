@@ -76,10 +76,5 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return _context.Destinations.ToList();
         }
-
-        public List<Comment> GetComments(int id)
-        {
-            return _context.Destinations.FindAsync(id).Result.Comments.ToList();
-        }
     }
 }

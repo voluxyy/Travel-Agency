@@ -13,6 +13,6 @@ namespace LasserreDetresTravelAgency.Data.Models
         public int DestinationId { get; set; }
         public DateTime DateStart { get; set; }
         public DateTime DateEnd { get; set; }
-
+        public int TravelTypeId { get; set; }
     }
 }

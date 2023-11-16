@@ -15,9 +15,9 @@ namespace LasserreDetresTravelAgency.Business.Service
     {
         private readonly IDestinationRepository destinationRepository;
         private readonly IVisitRepository visitRepository;
-        public DestinationService(IDestinationRepository repository, IVisitRepository visit)
+        public DestinationService(IDestinationRepository desination, IVisitRepository visit)
         {
-            this.destinationRepository = repository;
+            this.destinationRepository = desination;
             this.visitRepository = visit;
         }
 
@@ -81,16 +81,9 @@ namespace LasserreDetresTravelAgency.Business.Service
             return destinationsDtos;
         }
 
-        public List<Comment> GetComments(int id)
-        {
-            List<Comment> comments = destinationRepository.GetComments(id);
-            return comments;
-        }
-
         public List<DestinationDto> GetAllVisited()
         {
             List<Visit> visited = visitRepository.GetAllVisited();
-            Console.WriteLine(visited.Count());
             List<DestinationDto> destinations = new List<DestinationDto>();
             foreach (Visit visit in visited)
             {
@@ -109,13 +102,11 @@ namespace LasserreDetresTravelAgency.Business.Service
             DestinationDto DestinationDto = new DestinationDto
             {
                 Id = Destination.Id,
+                CategoryId = Destination.CategoryId,
                 CountryId = Destination.CountryId,
                 City = Destination.City,
                 Capital = Destination.Capital,
-                ToDo = Destination.ToDo.Split(", "),
-                NbVisited = (Destination.Visits != null) ? Destination.Visits.Count() : 0,
-                AverageRate = (Destination.Rates != null) ? Destination.Rates.Count() : 0,
-                Commentaries = (Destination.Comments != null) ? ConvertCollectionToCommentDisplayed(Destination.Comments) : null,
+                ToDo = Destination.ToDo.Split(", ")
             };
 
             return DestinationDto;
@@ -131,14 +122,11 @@ namespace LasserreDetresTravelAgency.Business.Service
             Destination Destination = new Destination
             {
                 Id = DestinationDto.Id,
+                CategoryId = DestinationDto.CategoryId,
                 CountryId = DestinationDto.CountryId,
                 City = DestinationDto.City,
                 Capital = DestinationDto.Capital,
-                ToDo = ConvertTableToString(DestinationDto.ToDo),
-                Visits = null,
-                AverageRate = 0,
-                Rates = null,
-                Comments = null,
+                ToDo = string.Join(", ", DestinationDto.ToDo)
             };
 
             return Destination;
@@ -158,47 +146,6 @@ namespace LasserreDetresTravelAgency.Business.Service
                 destinationDtos.Add(ModelToDto(dest));
             }
             return destinationDtos;
-        }
-
-        private string ConvertTableToString(string[] destination)
-        {
-            string result = "";
-
-            for(int i = 0; i < destination.Length; i++)
-            {
-                if (i == destination.Length-1)
-                {
-                    result += destination[i];
-                    break;
-                }
-                result += destination[i] + ", ";
-            }
-
-            return result;
-        }
-
-        private string[] ConvertCollectionToStringTable(ICollection<Comment> comments)
-        {
-            string[] strings = new string[0];
-
-            List<Comment> listComments = comments.AsEnumerable().ToList();
-            for (int i = 0; i < listComments.Count; i++)
-            {
-                strings[i] = listComments.ElementAt(i).Text;
-            }
-
-            return strings;
-        }
-
-        private CommentDisplayed[] ConvertCollectionToCommentDisplayed(ICollection<Comment> comments)
-        {
-            foreach (var item in comments.ToList())
-            {
-                User user;
-                // TODO: Implement a new Repository for each tables in the database (Particular for User).
-            }
-            CommentDisplayed[] commentDisplayeds = null;
-            return commentDisplayeds;
         }
     }
 }

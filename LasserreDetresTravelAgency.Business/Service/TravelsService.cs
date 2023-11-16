@@ -86,6 +86,7 @@ namespace LasserreDetresTravelAgency.Business.Service
                 DestinationId = Travels.DestinationId,
                 DateStart = Travels.DateStart,
                 DateEnd = Travels.DateEnd,
+                TravelTypeId = Travels.TravelTypeId
             };
 
             return TravelsDto;
@@ -100,6 +101,7 @@ namespace LasserreDetresTravelAgency.Business.Service
                 DestinationId = TravelsDto.DestinationId,
                 DateStart = TravelsDto.DateStart,
                 DateEnd = TravelsDto.DateEnd,
+                TravelTypeId = TravelsDto.TravelTypeId
             };
 
             return Travels;

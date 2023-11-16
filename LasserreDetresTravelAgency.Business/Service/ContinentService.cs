@@ -61,7 +61,6 @@ namespace LasserreDetresTravelAgency.Business.Service
             {
                 Id = Continent.Id,
                 Title = Continent.Title,
-                Description = Continent.Description,
             };
 
             return ContinentDto;
@@ -73,7 +72,6 @@ namespace LasserreDetresTravelAgency.Business.Service
             {
                 Id = ContinentDto.Id,
                 Title = ContinentDto.Title,
-                Description = ContinentDto.Description
             };
 
             return Continent;

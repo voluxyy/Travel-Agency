@@ -55,6 +55,14 @@ namespace LasserreDetresTravelAgency.Business.Service
             return commentsDtos;
         }
 
+        public List<CommentDto> GetAllByDestinationId(int id)
+        {
+            List<Comment> comments = commentRepository.GetAllByDestinationId(id);
+            List<CommentDto> commentDtos = ListModelToDto(comments);
+
+            return commentDtos;
+        }
+
         private CommentDto ModelToDto(Comment comment)
         {
             CommentDto commentDto = new CommentDto

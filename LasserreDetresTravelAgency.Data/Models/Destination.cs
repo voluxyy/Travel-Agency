@@ -20,8 +20,8 @@ namespace LasserreDetresTravelAgency.Data.Models
         public ICollection<Rate>? Rates { get; set; }
         public ICollection<Comment>? Comments { get; set; }
         public int? CategoryId { get; set; }
-        public ICollection<Favory> Favories { get; set; }
-        public ICollection<Event> Events { get; set; }
-        public ICollection<Travels> Travelers { get; set; }
+        public ICollection<Favory>? Favories { get; set; }
+        public ICollection<Event>? Events { get; set; }
+        public ICollection<Travels>? Travelers { get; set; }
     }
 }

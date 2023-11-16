@@ -68,8 +68,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             CategoryDto CategoryDto = new CategoryDto
             {
                 Id = Category.Id,
-                NameCategory = Category.NameCategory,
-                Description = Category.Description,
+                Title = Category.Title,
                 Destinations = (Category.Destinations != null) ? Category.Destinations : null,
             };
 
@@ -81,8 +80,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             Category Category = new Category
             {
                 Id = CategoryDto.Id,
-                NameCategory = CategoryDto.NameCategory,
-                Description = CategoryDto.Description,
+                Title = CategoryDto.Title,
                 Destinations = null,
             };
 

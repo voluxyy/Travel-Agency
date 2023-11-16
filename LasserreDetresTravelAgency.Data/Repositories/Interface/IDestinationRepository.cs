@@ -9,7 +9,5 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         Task<Destination> Get(int id);
         List<Destination> GetAll();
         Task<Destination> Update(Destination destination);
-
-        List<Comment> GetComments(int id);
     }
 }

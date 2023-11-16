@@ -14,10 +14,10 @@ namespace LasserreDetresTravelAgency.Data.Models
         public string Password { get; set; }
         public DateOnly Birthday { get; set; }
         public string? Description { get; set; }
-        public ICollection<Rate> Rates { get; set; }
-        public ICollection<Comment> Comments { get; set; }
-        public ICollection<Visit> Visits { get; set; }
-        public ICollection<Favory> Favories { get; set; }
-        public ICollection<Travels> Travels { get; set; }
+        public ICollection<Rate>? Rates { get; set; }
+        public ICollection<Comment>? Comments { get; set; }
+        public ICollection<Visit>? Visits { get; set; }
+        public ICollection<Favory>? Favories { get; set; }
+        public ICollection<Travels>? Travels { get; set; }
     }
 }

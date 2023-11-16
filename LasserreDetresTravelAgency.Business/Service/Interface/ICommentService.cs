@@ -9,5 +9,6 @@ namespace LasserreDetresTravelAgency.Business.Service
         Task<CommentDto> Get(int id);
         List<CommentDto> GetAll();
         Task<CommentDto> Update(CommentDto dto);
+        List<CommentDto> GetAllByDestinationId(int id);
     }
 }
