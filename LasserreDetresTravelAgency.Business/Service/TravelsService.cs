@@ -13,7 +13,6 @@ namespace LasserreDetresTravelAgency.Business.Service
     {
         private readonly ITravelsRepository travelsRepository;
 
-
         public TravelsService(ITravelsRepository travelsRepository)
         {
             this.travelsRepository = travelsRepository;
@@ -54,16 +53,15 @@ namespace LasserreDetresTravelAgency.Business.Service
             return travelsDto;
         }
 
-        
         public List<TravelsDto> GetAllFutureTravels()
         {
             List<Travels> travels = travelsRepository.GetAllFutureTravels();
             return ListModelToDto(travels);
         }
 
-        public List<TravelsDto> GetAllPasteTravels()
+        public List<TravelsDto> GetAllPastTravels()
         {
-            List<Travels> travels = travelsRepository.GetAllPasteTravels();
+            List<Travels> travels = travelsRepository.GetAllPastTravels();
             return ListModelToDto(travels);
         }
 
@@ -77,34 +75,34 @@ namespace LasserreDetresTravelAgency.Business.Service
             return travelsDto;
         }
 
-        private TravelsDto ModelToDto(Travels Travels)
+        private TravelsDto ModelToDto(Travels travels)
         {
-            TravelsDto TravelsDto = new TravelsDto
+            TravelsDto travelsDto = new TravelsDto
             {
-                Id = Travels.Id,
-                UserId = Travels.UserId,
-                DestinationId = Travels.DestinationId,
-                DateStart = Travels.DateStart,
-                DateEnd = Travels.DateEnd,
-                TravelTypeId = Travels.TravelTypeId
+                Id = travels.Id,
+                UserId = travels.UserId,
+                DestinationId = travels.DestinationId,
+                DateStart = travels.DateStart,
+                DateEnd = travels.DateEnd,
+                TravelTypeId = travels.TravelTypeId
             };
 
-            return TravelsDto;
+            return travelsDto;
         }
 
-        private Travels DtoToModel(TravelsDto TravelsDto)
+        private Travels DtoToModel(TravelsDto travelsDto)
         {
-            Travels Travels = new Travels
+            Travels travels = new Travels
             {
-                Id = TravelsDto.Id,
-                UserId = TravelsDto.UserId,
-                DestinationId = TravelsDto.DestinationId,
-                DateStart = TravelsDto.DateStart,
-                DateEnd = TravelsDto.DateEnd,
-                TravelTypeId = TravelsDto.TravelTypeId
+                Id = travelsDto.Id,
+                UserId = travelsDto.UserId,
+                DestinationId = travelsDto.DestinationId,
+                DateStart = travelsDto.DateStart,
+                DateEnd = travelsDto.DateEnd,
+                TravelTypeId = travelsDto.TravelTypeId
             };
 
-            return Travels;
+            return travels;
         }
     }
 }

@@ -22,18 +22,14 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         public async Task<User> Update(User user)
         {
             _context.Users.Update(user);
-
             await _context.SaveChangesAsync();
-
             return user;
         }
 
         public async Task<int> Delete(int id)
         {
             User user = await _context.Users.FindAsync(id);
-
             _context.Users.Remove(user);
-
             return await _context.SaveChangesAsync();
         }
 
@@ -50,10 +46,10 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         public List<User> GetAllMinorTravelers()
         {
             DateOnly today = DateOnly.FromDateTime(DateTime.Now);
-            
+
             return _context.Users
-            .Where(x => x.Birthday.AddYears(18) > today)
-            .ToList();
+                .Where(x => x.Birthday.AddYears(18) > today)
+                .ToList();
         }
     }
 }

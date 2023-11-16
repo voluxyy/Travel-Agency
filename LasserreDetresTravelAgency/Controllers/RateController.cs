@@ -17,6 +17,15 @@ namespace LasserreDetresTravelAgency
             this.service = service;
         }
 
+        /// <summary>
+        /// Ajoute une nouvelle évaluation en utilisant les données fournies dans le corps de la requête.
+        /// </summary>
+        /// <param name="dto">Les données de l'évaluation à ajouter.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP 201 Created si l'évaluation est ajoutée avec succès,
+        /// une réponse de validation problématique en cas d'erreur de validation,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpPost]
         public async Task<ActionResult<RateDto>> Add([FromBody] RateDto dto)
         {
@@ -35,6 +44,15 @@ namespace LasserreDetresTravelAgency
             }
         }
 
+        /// <summary>
+        /// Récupère les détails d'une évaluation en fonction de son identifiant.
+        /// </summary>
+        /// <param name="id">L'identifiant de l'évaluation à récupérer.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP 404 NotFound si l'évaluation n'existe pas,
+        /// les détails de l'évaluation si elle est trouvée,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<RateDto>> Get(int id)
         {
@@ -53,6 +71,16 @@ namespace LasserreDetresTravelAgency
             }
         }
 
+        /// <summary>
+        /// Met à jour les détails d'une évaluation en fonction de son identifiant en utilisant les données fournies.
+        /// </summary>
+        /// <param name="id">L'identifiant de l'évaluation à mettre à jour.</param>
+        /// <param name="dto">Les nouvelles données de l'évaluation.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP 404 NotFound si l'évaluation n'existe pas,
+        /// une réponse de validation problématique en cas d'erreur de validation,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpPut("{id}")]
         public async Task<ActionResult<RateDto>> Update(int id, RateDto dto)
         {
@@ -75,6 +103,15 @@ namespace LasserreDetresTravelAgency
             }
         }
 
+        /// <summary>
+        /// Supprime une évaluation en fonction de son identifiant.
+        /// </summary>
+        /// <param name="id">L'identifiant de l'évaluation à supprimer.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP 404 NotFound si l'évaluation n'existe pas,
+        /// une réponse HTTP 200 OK si l'évaluation est supprimée avec succès,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -94,6 +131,13 @@ namespace LasserreDetresTravelAgency
             }
         }
 
+        /// <summary>
+        /// Obtient la liste de toutes les évaluations à partir du service, puis renvoie cette liste en tant qu'objet JSON.
+        /// </summary>
+        /// <returns>
+        /// Retourne une réponse HTTP contenant la liste des évaluations sous forme d'objet JSON,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpGet("all")]
         public ActionResult<List<RateDto>> GetAll()
         {

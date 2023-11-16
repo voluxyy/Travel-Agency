@@ -12,6 +12,7 @@ namespace LasserreDetresTravelAgency.Business.Service
     public class FavoryService : IFavoryService
     {
         private readonly IFavoryRepository favoryRepository;
+
         public FavoryService(IFavoryRepository favory)
         {
             this.favoryRepository = favory;
@@ -22,7 +23,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             Favory favory = DtoToModel(dto);
             await favoryRepository.Add(favory);
             FavoryDto favoryDto = ModelToDto(favory);
-            return dto;
+            return favoryDto;
         }
 
         public async Task<FavoryDto> Update(FavoryDto dto)
@@ -71,6 +72,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             };
             return FavoryDto;
         }
+        
         private Favory DtoToModel(FavoryDto FavoryDto)
         {
             Favory Favory = new Favory()
@@ -79,10 +81,8 @@ namespace LasserreDetresTravelAgency.Business.Service
                 IsFavorite = FavoryDto.IsFavorite,
                 UserId = FavoryDto.UserId,
                 DestinationId = FavoryDto.DestinationId,
-
             };
             return Favory;
         }
-
     }
 }

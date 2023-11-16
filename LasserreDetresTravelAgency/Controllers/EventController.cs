@@ -15,7 +15,15 @@ namespace LasserreDetresTravelAgency.Controllers
             this.service = service;
         }
 
-        
+        /// <summary>
+        /// Ajoute un nouvel événement en utilisant les données fournies dans le corps de la requête.
+        /// </summary>
+        /// <param name="dto">Les données de l'événement à ajouter.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP 201 Created si l'événement est ajouté avec succès,
+        /// une réponse de validation problématique en cas d'erreur de validation,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpPost]
         public async Task<ActionResult<EventDto>> Add([FromBody] EventDto dto)
         {
@@ -34,7 +42,15 @@ namespace LasserreDetresTravelAgency.Controllers
             }
         }
 
-        
+        /// <summary>
+        /// Récupère les détails d'un événement en fonction de son identifiant.
+        /// </summary>
+        /// <param name="id">L'identifiant de l'événement à récupérer.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP 404 NotFound si l'événement n'existe pas,
+        /// les détails de l'événement si trouvé,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<EventDto>> Get(int id)
         {
@@ -53,7 +69,16 @@ namespace LasserreDetresTravelAgency.Controllers
             }
         }
 
-        
+        /// <summary>
+        /// Met à jour les détails d'un événement en fonction de son identifiant en utilisant les données fournies.
+        /// </summary>
+        /// <param name="id">L'identifiant de l'événement à mettre à jour.</param>
+        /// <param name="dto">Les nouvelles données de l'événement.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP 404 NotFound si l'événement n'existe pas,
+        /// une réponse de validation problématique en cas d'erreur de validation,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpPut("{id}")]
         public async Task<ActionResult<EventDto>> Update(int id, EventDto dto)
         {
@@ -76,7 +101,15 @@ namespace LasserreDetresTravelAgency.Controllers
             }
         }
 
-       
+        /// <summary>
+        /// Supprime un événement en fonction de son identifiant.
+        /// </summary>
+        /// <param name="id">L'identifiant de l'événement à supprimer.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP 404 NotFound si l'événement n'existe pas,
+        /// une réponse HTTP 200 OK si l'événement est supprimé avec succès,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -96,7 +129,13 @@ namespace LasserreDetresTravelAgency.Controllers
             }
         }
 
-        
+        /// <summary>
+        /// Obtient la liste de tous les événements à partir du service, puis renvoie cette liste en tant qu'objet JSON.
+        /// </summary>
+        /// <returns>
+        /// Retourne une réponse HTTP contenant la liste des événements sous forme d'objet JSON,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
         [HttpGet("all")]
         public ActionResult<List<EventDto>> GetAll()
         {
@@ -110,8 +149,16 @@ namespace LasserreDetresTravelAgency.Controllers
             }
         }
 
-
-        [HttpGet("all-events-by-destination")]
+        /// <summary>
+        /// Obtient la liste de tous les événements liés à une destination spécifique à partir du service,
+        /// puis renvoie cette liste en tant qu'objet JSON.
+        /// </summary>
+        /// <param name="id">L'identifiant de la destination.</param>
+        /// <returns>
+        /// Retourne une réponse HTTP contenant la liste des événements liés à la destination sous forme d'objet JSON,
+        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// </returns>
+        [HttpGet("all-events-by-destination/{id}")]
         public ActionResult<List<EventDto>> GetAllEventByDest(int id)
         {
             try

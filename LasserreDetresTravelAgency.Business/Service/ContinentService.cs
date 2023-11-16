@@ -1,91 +1,84 @@
 using LasserreDetresTravelAgency.Data.Models;
 using LasserreDetresTravelAgency.Data.Repositories;
-using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LasserreDetresTravelAgency.Business.Service
 {
     public class ContinentService : IContinentService
     {
-        private readonly IContinentRepository ContinentRepository;
+        private readonly IContinentRepository continentRepository;
+
         public ContinentService(IContinentRepository repository)
         {
-            this.ContinentRepository = repository;
+            this.continentRepository = repository;
         }
 
         public async Task<ContinentDto> Add(ContinentDto dto)
         {
-            Continent Continent = DtoToModel(dto);
-            await ContinentRepository.Add(Continent);
-            ContinentDto ContinentDto = ModelToDto(Continent);
+            Continent continent = DtoToModel(dto);
+            await continentRepository.Add(continent);
+            ContinentDto continentDto = ModelToDto(continent);
 
-            return ContinentDto;
+            return continentDto;
         }
 
         public async Task<ContinentDto> Update(ContinentDto dto)
         {
-            Continent Continent = DtoToModel(dto);
-            await ContinentRepository.Update(Continent);
-            ContinentDto ContinentDto = ModelToDto(Continent);
+            Continent continent = DtoToModel(dto);
+            await continentRepository.Update(continent);
+            ContinentDto continentDto = ModelToDto(continent);
 
-            return ContinentDto;
+            return continentDto;
         }
 
         public async Task<int> Delete(int id)
         {
-            return await ContinentRepository.Delete(id);
+            return await continentRepository.Delete(id);
         }
 
         public async Task<ContinentDto> Get(int id)
         {
-            return ModelToDto(await ContinentRepository.Get(id));
+            return ModelToDto(await continentRepository.Get(id));
         }
 
         public List<ContinentDto> GetAll()
         {
-            List<Continent> Continents = ContinentRepository.GetAll();
-            List<ContinentDto> ContinentsDtos = ListModelToDto(Continents);
+            List<Continent> continents = continentRepository.GetAll();
+            List<ContinentDto> continentsDtos = ListModelToDto(continents);
 
-            return ContinentsDtos;
+            return continentsDtos;
         }
 
-        private ContinentDto ModelToDto(Continent Continent)
+        private ContinentDto ModelToDto(Continent continent)
         {
-            ContinentDto ContinentDto = new ContinentDto
+            ContinentDto continentDto = new ContinentDto
             {
-                Id = Continent.Id,
-                Title = Continent.Title,
+                Id = continent.Id,
+                Title = continent.Title,
             };
 
-            return ContinentDto;
+            return continentDto;
         }
 
-        private Continent DtoToModel(ContinentDto ContinentDto)
+        private Continent DtoToModel(ContinentDto continentDto)
         {
-            Continent Continent = new Continent
+            Continent continent = new Continent
             {
-                Id = ContinentDto.Id,
-                Title = ContinentDto.Title,
+                Id = continentDto.Id,
+                Title = continentDto.Title,
             };
 
-            return Continent;
+            return continent;
         }
 
-        private List<ContinentDto> ListModelToDto(List<Continent> Continents)
+        private List<ContinentDto> ListModelToDto(List<Continent> continents)
         {
-            List<ContinentDto> ContinentDtos = new List<ContinentDto>();
+            List<ContinentDto> continentDtos = new List<ContinentDto>();
 
-            foreach (Continent dest in Continents)
+            foreach (Continent dest in continents)
             {
-                ContinentDtos.Add(ModelToDto(dest));
+                continentDtos.Add(ModelToDto(dest));
             }
-            return ContinentDtos;
+            return continentDtos;
         }
     }
 }

@@ -25,7 +25,6 @@ namespace LasserreDetresTravelAgency.Data.Repositories
             return evenement;
         }
 
-
         public async Task<Event> Update(Event evenement)
         {
             _context.Events.Update(evenement);
@@ -35,7 +34,6 @@ namespace LasserreDetresTravelAgency.Data.Repositories
             return evenement;
         }
 
-
         public async Task<int> Delete(int id)
         {
             Event evenement = await _context.Events.FindAsync(id);
@@ -44,7 +42,6 @@ namespace LasserreDetresTravelAgency.Data.Repositories
 
             return await _context.SaveChangesAsync();
         }
-
 
         public async Task<Event> Get(int id)
         {

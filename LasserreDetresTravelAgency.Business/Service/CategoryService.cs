@@ -1,11 +1,6 @@
 ﻿using LasserreDetresTravelAgency.Business.Dto;
 using LasserreDetresTravelAgency.Data.Models;
 using LasserreDetresTravelAgency.Data.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LasserreDetresTravelAgency.Business.Service
 {
@@ -29,7 +24,7 @@ namespace LasserreDetresTravelAgency.Business.Service
 
         public async Task<CategoryDto> Update(CategoryDto dto)
         {
-            Category category = DtoToModel(dto); 
+            Category category = DtoToModel(dto);
             await categoryRepository.Update(category);
             CategoryDto categoryDto = ModelToDto(category);
 
@@ -63,28 +58,28 @@ namespace LasserreDetresTravelAgency.Business.Service
             return categoriesDtos;
         }
 
-        private CategoryDto ModelToDto(Category Category)
+        private CategoryDto ModelToDto(Category category)
         {
-            CategoryDto CategoryDto = new CategoryDto
+            CategoryDto categoryDto = new CategoryDto
             {
-                Id = Category.Id,
-                Title = Category.Title,
-                Destinations = (Category.Destinations != null) ? Category.Destinations : null,
+                Id = category.Id,
+                Title = category.Title,
+                Destinations = (category.Destinations != null) ? category.Destinations : null,
             };
 
-            return CategoryDto;
+            return categoryDto;
         }
 
-        private Category DtoToModel(CategoryDto CategoryDto)
+        private Category DtoToModel(CategoryDto categoryDto)
         {
-            Category Category = new Category
+            Category category = new Category
             {
-                Id = CategoryDto.Id,
-                Title = CategoryDto.Title,
-                Destinations = null,
+                Id = categoryDto.Id,
+                Title = categoryDto.Title,
+                Destinations = null, // To be adapted if necessary
             };
 
-            return Category;
+            return category;
         }
     }
 }

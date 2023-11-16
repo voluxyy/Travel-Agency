@@ -1,90 +1,87 @@
 using LasserreDetresTravelAgency.Business.Dto;
 using LasserreDetresTravelAgency.Data.Models;
 using LasserreDetresTravelAgency.Data.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LasserreDetresTravelAgency.Business.Service
 {
     public class TravelTypeService : ITravelTypeService
     {
-        private readonly ITravelTypeRepository TravelTypeRepository;
+        private readonly ITravelTypeRepository travelTypeRepository;
 
-        public TravelTypeService(ITravelTypeRepository TravelTypeRepository)
+        public TravelTypeService(ITravelTypeRepository travelTypeRepository)
         {
-            this.TravelTypeRepository = TravelTypeRepository;
+            this.travelTypeRepository = travelTypeRepository;
         }
 
         public async Task<TravelTypeDto> Add(TravelTypeDto dto)
         {
-            TravelType TravelType = DtoToModel(dto);
-            await TravelTypeRepository.Add(TravelType);
-            TravelTypeDto TravelTypeDto = ModelToDto(TravelType);
+            TravelType travelType = DtoToModel(dto);
+            await travelTypeRepository.Add(travelType);
+            TravelTypeDto travelTypeDto = ModelToDto(travelType);
 
-            return TravelTypeDto;
+            return travelTypeDto;
         }
 
         public async Task<TravelTypeDto> Update(TravelTypeDto dto)
         {
-            TravelType TravelType = DtoToModel(dto); 
-            await TravelTypeRepository.Update(TravelType);
-            TravelTypeDto TravelTypeDto = ModelToDto(TravelType);
+            TravelType travelType = DtoToModel(dto);
+            await travelTypeRepository.Update(travelType);
+            TravelTypeDto travelTypeDto = ModelToDto(travelType);
 
-            return TravelTypeDto;
+            return travelTypeDto;
         }
 
         public async Task<int> Delete(int id)
         {
-            return await TravelTypeRepository.Delete(id);
+            return await travelTypeRepository.Delete(id);
         }
 
         public async Task<TravelTypeDto> Get(int id)
         {
-            return ModelToDto(await TravelTypeRepository.Get(id));
+            return ModelToDto(await travelTypeRepository.Get(id));
         }
 
         public List<TravelTypeDto> GetAll()
         {
-            List<TravelType> categories = TravelTypeRepository.GetAll();
-            List<TravelTypeDto> categoriesDtos = ListModelToDto(categories);
-            return categoriesDtos;
+            List<TravelType> travelTypes = travelTypeRepository.GetAll();
+            List<TravelTypeDto> travelTypesDtos = ListModelToDto(travelTypes);
+            return travelTypesDtos;
         }
 
-        private List<TravelTypeDto> ListModelToDto(List<TravelType> categories)
+        private List<TravelTypeDto> ListModelToDto(List<TravelType> travelTypes)
         {
-            List<TravelTypeDto> categoriesDtos = new List<TravelTypeDto>();
-            foreach (TravelType cat in categories)
+            List<TravelTypeDto> travelTypesDtos = new List<TravelTypeDto>();
+            foreach (TravelType cat in travelTypes)
             {
-                categoriesDtos.Add(ModelToDto(cat));
+                travelTypesDtos.Add(ModelToDto(cat));
             }
-            return categoriesDtos;
+            return travelTypesDtos;
         }
 
-        private TravelTypeDto ModelToDto(TravelType TravelType)
+        private TravelTypeDto ModelToDto(TravelType travelType)
         {
-            TravelTypeDto TravelTypeDto = new TravelTypeDto
+            TravelTypeDto travelTypeDto = new TravelTypeDto
             {
-                Id = TravelType.Id,
-                Title = TravelType.Title,
-                Travels = (TravelType.Travels != null) ? TravelType.Travels : null,
+                Id = travelType.Id,
+                Title = travelType.Title,
+                Travels = (travelType.Travels != null) ? travelType.Travels : null,
             };
 
-            return TravelTypeDto;
+            return travelTypeDto;
         }
 
-        private TravelType DtoToModel(TravelTypeDto TravelTypeDto)
+        private TravelType DtoToModel(TravelTypeDto travelTypeDto)
         {
-            TravelType TravelType = new TravelType
+            TravelType travelType = new TravelType
             {
-                Id = TravelTypeDto.Id,
-                Title = TravelTypeDto.Title,
+                Id = travelTypeDto.Id,
+                Title = travelTypeDto.Title,
                 Travels = null
             };
 
-            return TravelType;
+            return travelType;
         }
     }
 }

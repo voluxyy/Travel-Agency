@@ -14,27 +14,21 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         public async Task<Rate> Add(Rate rate)
         {
             _context.Rates.Add(rate);
-
             await _context.SaveChangesAsync();
-
             return rate;
         }
 
         public async Task<Rate> Update(Rate rate)
         {
             _context.Rates.Update(rate);
-
             await _context.SaveChangesAsync();
-
             return rate;
         }
 
         public async Task<int> Delete(int id)
         {
             Rate rate = await _context.Rates.FindAsync(id);
-
             _context.Rates.Remove(rate);
-
             return await _context.SaveChangesAsync();
         }
 

@@ -1,28 +1,21 @@
 using LasserreDetresTravelAgency.Data.Models;
 using LasserreDetresTravelAgency.Data.Repositories;
-using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LasserreDetresTravelAgency.Business.Service
 {
     public class CountryService : ICountryService
     {
-        private readonly ICountryRepository CountryRepository;
+        private readonly ICountryRepository countryRepository;
+
         public CountryService(ICountryRepository repository)
         {
-            this.CountryRepository = repository;
+            this.countryRepository = repository;
         }
 
         public async Task<CountryDto> Add(CountryDto dto)
         {
             Country country = DtoToModel(dto);
-            await CountryRepository.Add(country);
+            await countryRepository.Add(country);
             CountryDto countryDto = ModelToDto(country);
 
             return countryDto;
@@ -31,7 +24,7 @@ namespace LasserreDetresTravelAgency.Business.Service
         public async Task<CountryDto> Update(CountryDto dto)
         {
             Country country = DtoToModel(dto);
-            await CountryRepository.Update(country);
+            await countryRepository.Update(country);
             CountryDto countryDto = ModelToDto(country);
 
             return countryDto;
@@ -39,20 +32,20 @@ namespace LasserreDetresTravelAgency.Business.Service
 
         public async Task<int> Delete(int id)
         {
-            return await CountryRepository.Delete(id);
+            return await countryRepository.Delete(id);
         }
 
         public async Task<CountryDto> Get(int id)
         {
-            return ModelToDto(await CountryRepository.Get(id));
+            return ModelToDto(await countryRepository.Get(id));
         }
 
         public List<CountryDto> GetAll()
         {
-            List<Country> countrys = CountryRepository.GetAll();
-            List<CountryDto> countrysDtos = ListModelToDto(countrys);
+            List<Country> countries = countryRepository.GetAll();
+            List<CountryDto> countriesDtos = ListModelToDto(countries);
 
-            return countrysDtos;
+            return countriesDtos;
         }
 
         private CountryDto ModelToDto(Country country)
@@ -79,11 +72,11 @@ namespace LasserreDetresTravelAgency.Business.Service
             return country;
         }
 
-        private List<CountryDto> ListModelToDto(List<Country> countrys)
+        private List<CountryDto> ListModelToDto(List<Country> countries)
         {
             List<CountryDto> countryDtos = new List<CountryDto>();
 
-            foreach (Country dest in countrys)
+            foreach (Country dest in countries)
             {
                 countryDtos.Add(ModelToDto(dest));
             }

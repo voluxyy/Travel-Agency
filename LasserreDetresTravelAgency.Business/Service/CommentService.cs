@@ -1,11 +1,8 @@
 using LasserreDetresTravelAgency.Data.Models;
 using LasserreDetresTravelAgency.Data.Repositories;
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +11,7 @@ namespace LasserreDetresTravelAgency.Business.Service
     public class CommentService : ICommentService
     {
         private readonly ICommentRepository commentRepository;
+
         public CommentService(ICommentRepository repository)
         {
             this.commentRepository = repository;

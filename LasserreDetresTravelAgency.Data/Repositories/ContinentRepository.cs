@@ -16,29 +16,29 @@ namespace LasserreDetresTravelAgency.Data.Repositories
             _context = context;
         }
 
-        public async Task<Continent> Add(Continent Continent)
+        public async Task<Continent> Add(Continent continent)
         {
-            _context.Continents.Add(Continent);
+            _context.Continents.Add(continent);
 
             await _context.SaveChangesAsync();
 
-            return Continent;
+            return continent;
         }
 
-        public async Task<Continent> Update(Continent Continent)
+        public async Task<Continent> Update(Continent continent)
         {
-            _context.Continents.Update(Continent);
+            _context.Continents.Update(continent);
 
             await _context.SaveChangesAsync();
 
-            return Continent;
+            return continent;
         }
 
         public async Task<int> Delete(int id)
         {
-            Continent Continent = await _context.Continents.FindAsync(id);
+            Continent continent = await _context.Continents.FindAsync(id);
 
-            _context.Continents.Remove(Continent);
+            _context.Continents.Remove(continent);
 
             return await _context.SaveChangesAsync();
         }

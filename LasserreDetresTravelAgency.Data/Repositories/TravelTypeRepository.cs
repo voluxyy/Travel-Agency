@@ -17,30 +17,24 @@ namespace LasserreDetresTravelAgency.Data.Repositories
             _context = context;
         }
 
-        public async Task<TravelType> Add(TravelType TravelType)
+        public async Task<TravelType> Add(TravelType travelType)
         {
-            _context.TravelTypes.Add(TravelType);
-
+            _context.TravelTypes.Add(travelType);
             await _context.SaveChangesAsync();
-
-            return TravelType;
+            return travelType;
         }
 
-        public async Task<TravelType> Update(TravelType TravelType)
+        public async Task<TravelType> Update(TravelType travelType)
         {
-            _context.TravelTypes.Update(TravelType);
-
+            _context.TravelTypes.Update(travelType);
             await _context.SaveChangesAsync();
-
-            return TravelType;
+            return travelType;
         }
 
         public async Task<int> Delete(int id)
         {
-            TravelType TravelType = await _context.TravelTypes.FindAsync(id);
-
-            _context.TravelTypes.Remove(TravelType);
-
+            TravelType travelType = await _context.TravelTypes.FindAsync(id);
+            _context.TravelTypes.Remove(travelType);
             return await _context.SaveChangesAsync();
         }
 
@@ -48,10 +42,10 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return await _context.TravelTypes.FindAsync(id);
         }
+
         public List<TravelType> GetAll()
         {
             return _context.TravelTypes.ToList();
         }
-
     }
 }

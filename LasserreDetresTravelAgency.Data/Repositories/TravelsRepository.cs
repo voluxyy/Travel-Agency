@@ -19,32 +19,23 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         public async Task<Travels> Add(Travels travels)
         {
             _context.Travels.Add(travels);
-
             await _context.SaveChangesAsync();
-
             return travels;
         }
-
 
         public async Task<Travels> Update(Travels travels)
         {
             _context.Travels.Update(travels);
-
             await _context.SaveChangesAsync();
-
             return travels;
         }
-
 
         public async Task<int> Delete(int id)
         {
             Travels travels = await _context.Travels.FindAsync(id);
-
             _context.Travels.Remove(travels);
-
             return await _context.SaveChangesAsync();
         }
-
 
         public async Task<Travels> Get(int id)
         {
@@ -60,7 +51,8 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         {
             return _context.Travels.Where(x => x.DateStart > DateTime.Now).ToList();
         }
-        public List<Travels> GetAllPasteTravels()
+
+        public List<Travels> GetAllPastTravels()
         {
             return _context.Travels.Where(x => x.DateStart < DateTime.Now).ToList();
         }
