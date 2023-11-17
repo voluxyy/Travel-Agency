@@ -12,7 +12,6 @@ namespace LasserreDetresTravelAgency.Data.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
         public ICollection<Destination> destinations { get; set; }
         public int ContinentId { get; set; }
     }
