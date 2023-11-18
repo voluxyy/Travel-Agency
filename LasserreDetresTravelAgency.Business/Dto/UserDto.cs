@@ -1,3 +1,5 @@
+using LasserreDetresTravelAgency.Data.Models;
+
 namespace LasserreDetresTravelAgency.Business
 {
     public class UserDto
@@ -7,6 +9,6 @@ namespace LasserreDetresTravelAgency.Business
         public string FirstName { get; set; }
         public string Password { get; set; }
         public DateOnly Birthday { get; set; }
-        public string? Description { get; set; }        
+        public string? Description { get; set; }
     }
 }

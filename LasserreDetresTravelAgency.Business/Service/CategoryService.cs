@@ -1,11 +1,6 @@
 ﻿using LasserreDetresTravelAgency.Business.Dto;
 using LasserreDetresTravelAgency.Data.Models;
 using LasserreDetresTravelAgency.Data.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LasserreDetresTravelAgency.Business.Service
 {
@@ -27,30 +22,64 @@ namespace LasserreDetresTravelAgency.Business.Service
             return categoryDto;
         }
 
-        private CategoryDto ModelToDto(Category Category)
+        public async Task<CategoryDto> Update(CategoryDto dto)
         {
-            CategoryDto CategoryDto = new CategoryDto
-            {
-                Id = Category.Id,
-                NameCategory = Category.NameCategory,
-                Description = Category.Description,
-                Destinations = Category.Destinations,
-            };
+            Category category = DtoToModel(dto);
+            await categoryRepository.Update(category);
+            CategoryDto categoryDto = ModelToDto(category);
 
-            return CategoryDto;
+            return categoryDto;
         }
 
-        private Category DtoToModel(CategoryDto CategoryDto)
+        public async Task<int> Delete(int id)
         {
-            Category Category = new Category
+            return await categoryRepository.Delete(id);
+        }
+
+        public async Task<CategoryDto> Get(int id)
+        {
+            return ModelToDto(await categoryRepository.Get(id));
+        }
+
+        public List<CategoryDto> GetAll()
+        {
+            List<Category> categories = categoryRepository.GetAll();
+            List<CategoryDto> categoriesDtos = ListModelToDto(categories);
+            return categoriesDtos;
+        }
+
+        private List<CategoryDto> ListModelToDto(List<Category> categories)
+        {
+            List<CategoryDto> categoriesDtos = new List<CategoryDto>();
+            foreach (Category cat in categories)
             {
-                Id = CategoryDto.Id,
-                NameCategory = CategoryDto.NameCategory,
-                Description = CategoryDto.Description,
-                Destinations = CategoryDto.Destinations,
+                categoriesDtos.Add(ModelToDto(cat));
+            }
+            return categoriesDtos;
+        }
+
+        private CategoryDto ModelToDto(Category category)
+        {
+            CategoryDto categoryDto = new CategoryDto
+            {
+                Id = category.Id,
+                Title = category.Title,
+                Destinations = (category.Destinations != null) ? category.Destinations : null,
             };
 
-            return Category;
+            return categoryDto;
+        }
+
+        private Category DtoToModel(CategoryDto categoryDto)
+        {
+            Category category = new Category
+            {
+                Id = categoryDto.Id,
+                Title = categoryDto.Title,
+                Destinations = null, // To be adapted if necessary
+            };
+
+            return category;
         }
     }
 }

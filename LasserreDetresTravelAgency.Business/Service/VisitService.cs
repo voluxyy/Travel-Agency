@@ -1,12 +1,7 @@
+using LasserreDetresTravelAgency.Business.Dto;
 using LasserreDetresTravelAgency.Data.Models;
 using LasserreDetresTravelAgency.Data.Repositories;
-using Microsoft.VisualBasic;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LasserreDetresTravelAgency.Business.Service
@@ -14,6 +9,7 @@ namespace LasserreDetresTravelAgency.Business.Service
     public class VisitService : IVisitService
     {
         private readonly IVisitRepository visitRepository;
+
         public VisitService(IVisitRepository repository)
         {
             this.visitRepository = repository;
@@ -60,7 +56,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             VisitDto visitDto = new VisitDto
             {
                 Id = visit.Id,
-                
+                IsVisited = visit.IsVisited,
                 UserId = visit.UserId,
                 DestinationId = visit.DestinationId
             };
@@ -73,7 +69,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             Visit visit = new Visit
             {
                 Id = visitDto.Id,
-                
+                IsVisited = visitDto.IsVisited,
                 UserId = visitDto.UserId,
                 DestinationId = visitDto.DestinationId
             };

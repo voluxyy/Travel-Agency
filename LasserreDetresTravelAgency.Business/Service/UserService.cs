@@ -1,13 +1,7 @@
+using LasserreDetresTravelAgency.Business.Dto;
 using LasserreDetresTravelAgency.Data.Models;
 using LasserreDetresTravelAgency.Data.Repositories;
-using Microsoft.Identity.Client;
-using Microsoft.VisualBasic;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LasserreDetresTravelAgency.Business.Service
@@ -50,13 +44,20 @@ namespace LasserreDetresTravelAgency.Business.Service
             User user = DtoToModel(dto);
             await userRepository.Update(user);
             UserDto userDto = ModelToDto(user);
-            
+
             return userDto;
+        }
+
+        public List<UserDto> GetAllMinorTravelers()
+        {
+            List<User> users = userRepository.GetAllMinorTravelers();
+            return ListModelToDto(users);
         }
 
         private User DtoToModel(UserDto dto)
         {
-            User user = new User{
+            User user = new User
+            {
                 Id = dto.Id,
                 LastName = dto.LastName,
                 FirstName = dto.FirstName,
@@ -70,7 +71,8 @@ namespace LasserreDetresTravelAgency.Business.Service
 
         private UserDto ModelToDto(User user)
         {
-            UserDto userDto = new UserDto{
+            UserDto userDto = new UserDto
+            {
                 Id = user.Id,
                 LastName = user.LastName,
                 FirstName = user.FirstName,

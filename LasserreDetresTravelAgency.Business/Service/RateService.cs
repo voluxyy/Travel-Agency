@@ -56,7 +56,8 @@ namespace LasserreDetresTravelAgency.Business.Service
 
         private Rate DtoToModel(RateDto dto)
         {
-            Rate rate = new Rate{
+            Rate rate = new Rate
+            {
                 Id = dto.Id,
                 Number = dto.Number,
                 UserId = dto.UserId,
@@ -68,7 +69,8 @@ namespace LasserreDetresTravelAgency.Business.Service
 
         private RateDto ModelToDto(Rate rate)
         {
-            RateDto rateDto = new RateDto{
+            RateDto rateDto = new RateDto
+            {
                 Id = rate.Id,
                 Number = rate.Number,
                 UserId = rate.UserId,
