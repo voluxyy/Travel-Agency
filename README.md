@@ -1,10 +1,89 @@
-# Travel-Agency
+# Travel Agency
 
-This projet is about a Travel Agency Web Application. For the development, we make the API Back-End using C#, for the DataBase we used Sqlite, and the Front-End side with Angular and Sass.
-This is a school project, we wanted explore further more the Back-End and Front-End, and how to make each other communicate.
+Application réalisé par Anael Lasserre et Florent Detres.
 
-## How you can start this projet localy ?
-- Open a new folder
-- Git clone your project
-- We used Visual Code as IDE, but you can open the solution (.sln) with any other IDE.
-- 
+___
+## Backend
+
+Le backend est donc en csharp, nous avons fait la totalité des objectifs que vous nous avez donné ainsi que des suppléments afin de simuler un vrai projet d'agence de voyage.
+
+Pour ce qui est des bonus : <!-- TODO: Bonus csharp speech -->
+
+### Modèle de données :
+* Categories :
+    * Id
+    * Title
+
+* Comments :
+    * Id
+    * Text
+    * UserId
+    * DestinationId
+
+* Continents :
+    * Id
+    * Title
+
+* Countries :
+    * Id
+    * Title
+    * ContinentId
+
+* Destinations :
+    * Id
+    * AverageRate
+    * Capital
+    * City
+    * ToDo
+    * CategoryId
+    * CountryId
+
+* Events :
+    * Id
+    * Date
+    * Title
+    * Description
+    * DestinationId
+
+* Favories :
+    * Id
+    * IsFavorite
+    * UserId
+    * DestinationId
+
+* Rates :
+    * Id
+    * Number
+    * UserId
+    * DestinationId
+
+* TravelTypes :
+    * Id
+    * Title
+
+* Travels :
+    * Id
+    * DateStart
+    * DateEnd
+    * DestinationId
+    * TravelTypeId
+    * UserId
+
+* Users :
+    * Id
+    * LastName
+    * FirstName
+    * Password
+    * Birthday
+    * Description
+
+* Visits :
+    * Id
+    * IsVisited
+    * DateVisited
+    * DestinationId
+    * UserId
+
+## Angular
+
+<!-- TODO: Angular speech -->
