@@ -2,12 +2,26 @@ using LasserreDetresTravelAgency.Business.Service;
 using LasserreDetresTravelAgency.Data;
 using LasserreDetresTravelAgency.Data.Repositories;
 
+var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 //builder.Services.AddRazorPages();
 
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: MyAllowSpecificOrigins,
+        policy  =>
+        {
+            policy.WithOrigins(
+                "http://localhost:4200",
+                "http://127.0.0.1:4200"
+            );
+        });
+});
+
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
@@ -42,7 +56,7 @@ builder.Services.AddTransient<IContinentRepository, ContinentRepository>();
 builder.Services.AddTransient<ITravelTypeRepository, TravelTypeRepository>();
 
 var app = builder.Build();
-app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors(MyAllowSpecificOrigins);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
