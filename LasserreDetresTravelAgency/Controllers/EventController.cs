@@ -51,7 +51,7 @@ namespace LasserreDetresTravelAgency.Controllers
         /// les détails de l'événement si trouvé,
         /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
         /// </returns>
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         public async Task<ActionResult<EventDto>> Get(int id)
         {
             if (id <= default(int))
@@ -79,7 +79,7 @@ namespace LasserreDetresTravelAgency.Controllers
         /// une réponse de validation problématique en cas d'erreur de validation,
         /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
         /// </returns>
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         public async Task<ActionResult<EventDto>> Update(int id, EventDto dto)
         {
             if (id <= default(int))
@@ -110,7 +110,7 @@ namespace LasserreDetresTravelAgency.Controllers
         /// une réponse HTTP 200 OK si l'événement est supprimé avec succès,
         /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
         /// </returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= default(int))
