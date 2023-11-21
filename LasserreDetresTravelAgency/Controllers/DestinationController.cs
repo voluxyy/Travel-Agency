@@ -170,5 +170,18 @@ namespace LasserreDetresTravelAgency
                 return this.StatusCode(500, "Internal server error");
             }
         }
+
+        [HttpGet("get-all-user-and-category/{userId}/{CategoryId}")]
+        public ActionResult<List<DestinationDto>> GetAllDestinationByUserAndCategory(int userId, int CategoryId)
+        {
+            try
+            {
+                return this.service.GetAllDestinationByUserAndCategory(userId, CategoryId);
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(500, "Internal server error");
+            }
+        }
     }
 }

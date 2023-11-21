@@ -66,7 +66,6 @@ namespace LasserreDetresTravelAgency.Business.Service
             {
                 Id = travelType.Id,
                 Title = travelType.Title,
-                Travels = (travelType.Travels != null) ? travelType.Travels : null,
             };
 
             return travelTypeDto;

@@ -44,5 +44,7 @@ namespace LasserreDetresTravelAgency.Business.Service
         /// </summary>
         /// <returns>Returns a list of visited destination data.</returns>
         List<DestinationDto> GetAllVisited();
+
+        List<DestinationDto> GetAllDestinationByUserAndCategory(int userId, int CategoryId);
     }
 }

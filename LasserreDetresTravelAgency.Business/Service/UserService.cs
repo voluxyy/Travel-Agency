@@ -10,7 +10,7 @@ namespace LasserreDetresTravelAgency.Business.Service
     {
         private readonly IUserRepository userRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IDestinationRepository destinationRepository)
         {
             this.userRepository = userRepository;
         }

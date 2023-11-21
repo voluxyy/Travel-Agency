@@ -40,10 +40,7 @@ namespace LasserreDetresTravelAgency.Data.Repositories
         /// <returns>Returns the visit model object that has been updated in the database.</returns>
         Task<Visit> Update(Visit visit);
         
-        /// <summary>
-        /// Retrieves the list of all visited visit records from the database.
-        /// </summary>
-        /// <returns>Returns a list of visit model objects representing all visited visit records in the database.</returns>
-        List<Visit> GetAllVisited();
+
+        List<Visit> GetByUserId(int id);
     }
 }

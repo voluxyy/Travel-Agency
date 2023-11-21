@@ -66,7 +66,6 @@ namespace LasserreDetresTravelAgency.Business.Service
             FavoryDto FavoryDto = new FavoryDto
             {
                 Id = Favory.Id,
-                IsFavorite = Favory.IsFavorite,
                 UserId = Favory.UserId,
                 DestinationId = Favory.DestinationId,
             };
@@ -78,7 +77,6 @@ namespace LasserreDetresTravelAgency.Business.Service
             Favory Favory = new Favory()
             {
                 Id = FavoryDto.Id,
-                IsFavorite = FavoryDto.IsFavorite,
                 UserId = FavoryDto.UserId,
                 DestinationId = FavoryDto.DestinationId,
             };
