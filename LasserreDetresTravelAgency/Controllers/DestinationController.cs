@@ -18,13 +18,13 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Ajoute une nouvelle destination en utilisant les données fournies dans le corps de la requête.
+        /// Adds a new destination using the data provided in the request body.
         /// </summary>
-        /// <param name="dto">Les données de la destination à ajouter.</param>
+        /// <param name="dto">The data of the destination to add.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 201 Created si la destination est ajoutée avec succès,
-        /// une réponse de validation problématique en cas d'erreur de validation,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 201 Created response if the destination is successfully added,
+        /// a problematic validation response in case of validation error,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpPost]
         public async Task<ActionResult<DestinationDto>> Add([FromBody] DestinationDto dto)
@@ -45,13 +45,13 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Récupère les détails d'une destination en fonction de son identifiant.
+        /// Retrieves the details of a destination based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de la destination à récupérer.</param>
+        /// <param name="id">The identifier of the destination to retrieve.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si la destination n'existe pas,
-        /// les détails de la destination si elle est trouvée,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the destination does not exist,
+        /// the details of the destination if found,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpGet("get/{id}")]
         public async Task<ActionResult<DestinationDto>> Get(int id)
@@ -72,14 +72,14 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Met à jour les détails d'une destination en fonction de son identifiant en utilisant les données fournies.
+        /// Updates the details of a destination based on its identifier using the provided data.
         /// </summary>
-        /// <param name="id">L'identifiant de la destination à mettre à jour.</param>
-        /// <param name="dto">Les nouvelles données de la destination.</param>
+        /// <param name="id">The identifier of the destination to update.</param>
+        /// <param name="dto">The new data of the destination.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si la destination n'existe pas,
-        /// une réponse de validation problématique en cas d'erreur de validation,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the destination does not exist,
+        /// a problematic validation response in case of validation error,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpPut("update/{id}")]
         public async Task<ActionResult<DestinationDto>> Update(int id, DestinationDto dto)
@@ -104,13 +104,13 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Supprime une destination en fonction de son identifiant.
+        /// Deletes a destination based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de la destination à supprimer.</param>
+        /// <param name="id">The identifier of the destination to delete.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si la destination n'existe pas,
-        /// une réponse HTTP 200 OK si la destination est supprimée avec succès,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the destination does not exist,
+        /// an HTTP 200 OK response if the destination is successfully deleted,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -132,11 +132,11 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Obtient la liste de toutes les destinations à partir du service, puis renvoie cette liste en tant qu'objet JSON.
+        /// Gets the list of all destinations from the service and then returns this list as a JSON object.
         /// </summary>
         /// <returns>
-        /// Retourne une réponse HTTP contenant la liste des destinations sous forme d'objet JSON,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP response containing the list of destinations as a JSON object,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpGet("all")]
         public ActionResult<List<DestinationDto>> GetAll()
@@ -152,11 +152,11 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Obtient la liste de toutes les destinations visitées à partir du service, puis renvoie cette liste en tant qu'objet JSON.
+        /// Gets the list of all visited destinations from the service and then returns this list as a JSON object.
         /// </summary>
         /// <returns>
-        /// Retourne une réponse HTTP contenant la liste des destinations visitées sous forme d'objet JSON,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP response containing the list of visited destinations as a JSON object,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpGet("all-visited")]
         public ActionResult<List<DestinationDto>> GetAllVisited()
@@ -171,6 +171,15 @@ namespace LasserreDetresTravelAgency
             }
         }
 
+        /// <summary>
+        /// Gets the list of all destinations associated with a user and category based on the user and category identifiers.
+        /// </summary>
+        /// <param name="userId">The identifier of the user.</param>
+        /// <param name="CategoryId">The identifier of the category.</param>
+        /// <returns>
+        /// Returns an HTTP response containing the list of destinations associated with the user and category as a JSON object,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
+        /// </returns>
         [HttpGet("get-all-user-and-category/{userId}/{CategoryId}")]
         public ActionResult<List<DestinationDto>> GetAllDestinationByUserAndCategory(int userId, int CategoryId)
         {

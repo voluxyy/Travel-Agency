@@ -18,13 +18,13 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Ajoute un nouvel utilisateur en utilisant les données fournies dans le corps de la requête.
+        /// Adds a new user using the data provided in the request body.
         /// </summary>
-        /// <param name="dto">Les données de l'utilisateur à ajouter.</param>
+        /// <param name="dto">The data of the user to add.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 201 Created si l'utilisateur est ajouté avec succès,
-        /// une réponse de validation problématique en cas d'erreur de validation,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 201 Created response if the user is successfully added,
+        /// a problematic validation response in case of validation error,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpPost]
         public async Task<ActionResult<UserDto>> Add([FromBody] UserDto dto)
@@ -45,13 +45,13 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Récupère les détails d'un utilisateur en fonction de son identifiant.
+        /// Retrieves the details of a user based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de l'utilisateur à récupérer.</param>
+        /// <param name="id">The identifier of the user to retrieve.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si l'utilisateur n'existe pas,
-        /// les détails de l'utilisateur si trouvé,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the user does not exist,
+        /// the details of the user if found,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpGet("get/{id}")]
         public async Task<ActionResult<UserDto>> Get(int id)
@@ -72,14 +72,14 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Met à jour les détails d'un utilisateur en fonction de son identifiant en utilisant les données fournies.
+        /// Updates the details of a user based on its identifier using the provided data.
         /// </summary>
-        /// <param name="id">L'identifiant de l'utilisateur à mettre à jour.</param>
-        /// <param name="dto">Les nouvelles données de l'utilisateur.</param>
+        /// <param name="id">The identifier of the user to update.</param>
+        /// <param name="dto">The new data of the user.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si l'utilisateur n'existe pas,
-        /// une réponse de validation problématique en cas d'erreur de validation,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the user does not exist,
+        /// a problematic validation response in case of validation error,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpPut("update/{id}")]
         public async Task<ActionResult<UserDto>> Update(int id, UserDto dto)
@@ -104,13 +104,13 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Supprime un utilisateur en fonction de son identifiant.
+        /// Deletes a user based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de l'utilisateur à supprimer.</param>
+        /// <param name="id">The identifier of the user to delete.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si l'utilisateur n'existe pas,
-        /// une réponse HTTP 200 OK si l'utilisateur est supprimé avec succès,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the user does not exist,
+        /// an HTTP 200 OK response if the user is successfully deleted,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -132,11 +132,11 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Obtient la liste de tous les utilisateurs à partir du service, puis renvoie cette liste en tant qu'objet JSON.
+        /// Gets the list of all users from the service and then returns this list as a JSON object.
         /// </summary>
         /// <returns>
-        /// Retourne une réponse HTTP contenant la liste des utilisateurs sous forme d'objet JSON,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP response containing the list of users as a JSON object,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpGet("all")]
         public ActionResult<List<UserDto>> GetAll()
@@ -152,11 +152,11 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Obtient la liste de tous les voyageurs mineurs à partir du service, puis renvoie cette liste en tant qu'objet JSON.
+        /// Gets the list of all minor travelers from the service and then returns this list as a JSON object.
         /// </summary>
         /// <returns>
-        /// Retourne une réponse HTTP contenant la liste des voyageurs mineurs sous forme d'objet JSON,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP response containing the list of minor travelers as a JSON object,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpGet("all-minor-travelers")]
         public ActionResult<List<UserDto>> GetAllMinorTravelers()
