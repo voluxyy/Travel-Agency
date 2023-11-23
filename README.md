@@ -122,8 +122,13 @@ Pour manipuler le back-end, utiliser l'interface swagger reste nécessaire.
 ![Image Accueil](maquette-front/accueil.jpg)
 ![Image Destination](maquette-front/destination_onclick.jpg)
 
+## Utilisation
 
-## VS Code
+A cause de la limite de taille de 100Mo sur le moodle, je n'ai pas pu mettre l'intégralité des fichiers. 
+Il faut donc faire la commande : 
+> npm install
+
+Afin d'installer les dépedances d'angular. La commande est a exécuté dans le dossier front-travel-agency.
 
 Le projet a été réalisé via VS Code et non via VS. Si vous souhaitez l'utiliser avec vscode, voici les commandes à exécuter depuis la racine du projet :
 * Pour lancer le back-end :
@@ -133,5 +138,7 @@ Le projet a été réalisé via VS Code et non via VS. Si vous souhaitez l'utili
     > cd front-travel-agency
     >
     > ng serve
+
+## VS Code
 
 Je recommande l'utilisation de VS Code car le port utiliser par le back-end en Csharp change en fonction de l'IDE, pour VS Code le port utilisé est 7094 alors que pour VS le port utilisé est différent d'après ce que j'ai vu. Angular ne fonctionnera pas avec un port différent de 7094 à moins qu'on change manuellement dans angular.
