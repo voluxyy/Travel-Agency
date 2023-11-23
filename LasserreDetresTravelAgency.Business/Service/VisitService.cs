@@ -56,6 +56,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             VisitDto visitDto = new VisitDto
             {
                 Id = visit.Id,
+                DateVisited = visit.DateVisited,
                 UserId = visit.UserId,
                 DestinationId = visit.DestinationId
             };
@@ -68,6 +69,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             Visit visit = new Visit
             {
                 Id = visitDto.Id,
+                DateVisited = visitDto.DateVisited,
                 UserId = visitDto.UserId,
                 DestinationId = visitDto.DestinationId
             };

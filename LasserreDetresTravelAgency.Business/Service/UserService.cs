@@ -61,10 +61,16 @@ namespace LasserreDetresTravelAgency.Business.Service
                 Id = dto.Id,
                 LastName = dto.LastName,
                 FirstName = dto.FirstName,
-                Password = dto.Password,
                 Birthday = dto.Birthday,
                 Description = dto.Description,
             };
+
+            // Encrypt password to store it in the database
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(dto.Password);
+            data = System.Security.Cryptography.SHA256.HashData(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+
+            user.Password = hash;
 
             return user;
         }
