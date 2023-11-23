@@ -1,0 +1,71 @@
+<table>
+    <thead>
+        <th>Id</th>
+        <th>CountryId</th>
+        <th>CategoryId</th>
+        <th>City</th>
+        <th>Capital</th>
+        <th>ToDo</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dest of destinations">
+            <td>{{ dest.id }}</td>
+            <td>{{ dest.countryId }}</td>
+            <td>{{ dest.categoryId }}</td>
+            <td>{{ dest.city }}</td>
+            <td>{{ dest.capital }}</td>
+            <td>{{ dest.toDo }}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!--
+<div class="container_database">
+    
+    <img src="/assets/control_center.gif" alt=""
+        class="control_center_gif">
+    <h1>Centre de contrôle de votre Base de Données.</h1>
+    
+    <div class="grid_database">
+        <div class="grid_database_btn">
+            <a href="" class="database_btn">Continent</a>
+            <a href="" class="database_btn">Country</a>
+            <a href="" class="database_btn">Destination</a>
+            <a href="" class="database_btn">Category</a>
+            <a href="" class="database_btn">Favory</a>
+            <a href="" class="database_btn">Evenement</a>
+            <a href="" class="database_btn">Travels</a>
+            <a href="" class="database_btn">TravelsType</a>
+            <a href="" class="database_btn">Comment</a>
+            <a href="" class="database_btn">Rate</a>
+            <a href="" class="database_btn">Visits</a>
+            <a href="" class="database_btn">User</a>
+        </div>
+        <div class="grid_database_data">
+            
+        </div>
+    </div>
+
+    <div *ngIf="destination">
+         <div>CountryId:
+            <input [(ngModel)]="destination.countryId" placeholder="CountryId"/>
+        </div>
+         <div>CategoryId:
+            <input [(ngModel)]="destination.categoryId" placeholder="CategoryId"/>
+        </div>
+        <div>City:
+            <input [(ngModel)]="destination.city" placeholder="City"/>
+        </div>
+        <div>Capital:
+            <input [(ngModel)]="destination.capital" placeholder="Capital"/>
+        </div>
+        <div>ToDo:
+            <input [(ngModel)]="destinations.toDo" placeholder="ToDo"/>
+        </div>
+        <button (click)="createDestination()" *ngIf=".id">Create Destination</button>
+        <button (click)="updateDestination()" *ngIf=".id">Update Destination</button>
+        <button (click)="deleteDestination()" *ngIf="!.id">Delete Destination</button>
+    </div>
+</div>
+--> 
