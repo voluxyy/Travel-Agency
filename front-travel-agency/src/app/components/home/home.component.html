@@ -19,11 +19,15 @@
 <div class="destinations-container">
     <div class="dest_cards" *ngFor="let dest of destinations">
         <div class="cards">
-            <!-- 
-                <img src="{{destinations.image}}" alt="">
-            -->
+            <div class="image_cards"></div>
             <h3 class="dest_city">{{dest.city}}</h3>
-            <p class="dest_country">{{dest.title}}</p>
+            <div class="list_todo_cards">
+                <h5>Chose à faire:</h5>
+                <ul>
+                    <li class="dest_todo">{{dest.toDo}}</li>
+                </ul>
+            </div>
+            
         </div>
     </div>
 </div>

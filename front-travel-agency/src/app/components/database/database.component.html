@@ -1,4 +1,3 @@
-<!--
 <div class="container_database">
     
     <img src="/assets/control_center.gif" alt=""
@@ -24,26 +23,3 @@
             
         </div>
     </div>
-
-    <div *ngIf="destination">
-         <div>CountryId:
-            <input [(ngModel)]="destination.countryId" placeholder="CountryId"/>
-        </div>
-         <div>CategoryId:
-            <input [(ngModel)]="destination.categoryId" placeholder="CategoryId"/>
-        </div>
-        <div>City:
-            <input [(ngModel)]="destination.city" placeholder="City"/>
-        </div>
-        <div>Capital:
-            <input [(ngModel)]="destination.capital" placeholder="Capital"/>
-        </div>
-        <div>ToDo:
-            <input [(ngModel)]="destinations.toDo" placeholder="ToDo"/>
-        </div>
-        <button (click)="createDestination()" *ngIf=".id">Create Destination</button>
-        <button (click)="updateDestination()" *ngIf=".id">Update Destination</button>
-        <button (click)="deleteDestination()" *ngIf="!.id">Delete Destination</button>
-    </div>
-</div>
---> 
