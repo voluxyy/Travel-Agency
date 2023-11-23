@@ -30,7 +30,7 @@ classDiagram
     Destinations <|-- Travels
     Destinations <|-- Visits
 
-    TravelType <|-- Travels
+    TravelTypes <|-- Travels
 
     Users <|-- Comments
     Users <|-- Favories
