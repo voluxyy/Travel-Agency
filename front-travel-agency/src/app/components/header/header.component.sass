@@ -36,23 +36,24 @@ a
 #login-link
     grid-area: 1/10/1/10
     
-.login-button
+.database-button
     color: $primary-color
-
     &:hover
-        text-decoration: $primary-color wavy underline
+        border: 1px solid $primary-color
 
-#signup-link
+#user-link
     grid-area: 1/11/1/11
 
-.signup-button
-    background-color: $primary-color
-    color: white
+.user-button
+    border: 1px solid $primary-color
+    background-color: white
+    color: $primary-color
     
     &:hover
-        background-color: #2B425F
+        background-color: $primary-color
+        color: white
 
-.login-button, .signup-button
+.database-button, .user-button
     display: flex
     align-items: center
     justify-content: center

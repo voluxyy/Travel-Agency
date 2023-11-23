@@ -10,11 +10,8 @@ import { ViewChild, ElementRef } from '@angular/core';
 export class HomeComponent implements OnInit {
   destinations: any;
   filteredDestinations: any;
-
   category: any;
-
-  getCountryName: any;
-
+  country: any;
   target: string;
 
   constructor(private http: HttpClient) {
@@ -30,9 +27,10 @@ export class HomeComponent implements OnInit {
 
     this.http.get<any>(this.target+"/api/Category/all")
     .subscribe(resp => this.category = resp);
-    
-    this.http.get<any>(this.target+"/api/Country/get/"+ this.destinations)
-    .subscribe(resp => this.getCountryName = resp)
+    /*
+    this.http.get<any>(this.target+"/api/Country/get/"+ this.country)
+    .subscribe(resp => this.country = resp)
+    */
   }
 
   filterDestinations(categoryTitle: string) {
