@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DestinationPageComponent } from './destination-page/destination-page.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
-import { CategoryPageComponent } from './category-page/category-page.component';
-import { HomeComponent } from './home/home.component';
+import { DestinationPageComponent } from './components/destination-page/destination-page.component';
+import { UserComponent } from './components/user/user.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { CategoryPageComponent } from './components/category-page/category-page.component';
+import { HomeComponent } from './components/home/home.component';
+import { DatabaseComponent } from './components/database/database.component';
 
 
 @NgModule({
@@ -18,10 +19,11 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     HeaderComponent,
     DestinationPageComponent,
-    ProfilePageComponent,
+    UserComponent,
     ErrorPageComponent,
     CategoryPageComponent,
-    HomeComponent
+    HomeComponent,
+    DatabaseComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +31,10 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
+      {path: 'database', component: DatabaseComponent},
       {path: 'destination/:id', component: DestinationPageComponent},
       {path: 'categorie/:id', component: CategoryPageComponent},
-      {path: 'profile/:id', component: ProfilePageComponent},
+      {path: 'user', component: UserComponent},
       {path: '**', component: ErrorPageComponent}
     ]),
   ],
