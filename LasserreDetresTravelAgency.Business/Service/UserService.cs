@@ -87,6 +87,13 @@ namespace LasserreDetresTravelAgency.Business.Service
                 Description = user.Description,
             };
 
+            var today = DateOnly.FromDateTime(DateTime.Today);
+            var age = today.Year - user.Birthday.Year;
+
+            if (user.Birthday.DayNumber > today.DayNumber) age--;
+
+            userDto.YearsOld = age;
+
             return userDto;
         }
 

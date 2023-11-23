@@ -15,8 +15,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void{
-    this.http.get<any>(this.target+"/api/User/all")
+    this.http.get<any>(this.target+"/api/User/get/1")
     .subscribe(resp => this.user = resp);
   }
-
 }

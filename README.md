@@ -12,7 +12,7 @@ Pour ce qui est des bonus :
     * La méthode "GetAllDestinationByUserAndCategory" dans Destination, on obtient les destinations en fonction des voyages qu'un utilisateur a fait dans une certaine catégorie.
 
 * Stockage de la date de naissance dans le DTO :
-    * Nous n'avons pas trouvé, (Anaël) personnellement je n'ai pas compris comment stocker la date de naissance dans le dto est possible, si le server back-end redémarre on est obligé de perdre les dates de naissance, non ?
+    * La méthode "ModelToDto" dans le service de User permet d'afficher l'âge de l'utilisateur sans le stocker dans la base de donnée.
 
 ### Modèle de données :
 ```mermaid
@@ -114,9 +114,14 @@ classDiagram
 
 ## Angular
 
-Pour ce qui est de l'angular, nous n'avons pu faire que la page d'accueil afin d'afficher les catégories et les destinations.
+Pour ce qui est de l'angular, nous avons fait l'accueil qui permet d'afficher les catégories ainsi que les destinations. Il existe une page pour manager la database accessible depuis le bouton database, cependant elle n'est pas encore utilisable pour ajouter, modifier, supprimer des données. Une page utilisateur est aussi présente malgré qu'elle ne soit pas terminé.
 
 Pour manipuler le back-end, utiliser l'interface swagger reste nécessaire.
+
+### Maquette :
+![Image Accueil](maquette-front/accueil.jpg)
+![Image Destination](maquette-front/destination_onclick.jpg)
+
 
 ## VS Code
 

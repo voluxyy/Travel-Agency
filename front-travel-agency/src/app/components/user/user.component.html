@@ -1,9 +1,7 @@
 <div class="container_user">
     <div>Informations</div>
-    <div>Nom</div>
-    <div class="user_lastname"
-    *ngFor="let u of user">{{user.lastName}}</div>
-
-    <div>Prenom:</div>
-    <div>{{user.firstName}}</div>
+    <div>Nom: <span>{{user.lastName}}</span></div>
+    <div>Prenom: <span>{{user.firstName}}</span></div>
+    <div>Age: <span>{{user.yearsOld}}</span></div>
+    <div>Description: <span>{{user.description}}</span></div>
 </div>

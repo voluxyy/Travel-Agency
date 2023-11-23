@@ -9,6 +9,7 @@ namespace LasserreDetresTravelAgency.Business
         public string FirstName { get; set; }
         public string Password { get; set; }
         public DateOnly Birthday { get; set; }
+        public int YearsOld { get; set; }
         public string? Description { get; set; }
     }
 }
