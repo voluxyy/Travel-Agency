@@ -52,13 +52,36 @@ namespace LasserreDetresTravelAgency.Business.Service
 
         public List<DestinationDto> GetAllVisited()
         {
-            List<Visit> visited = visitRepository.GetAllVisited();
+            List<Visit> visited = visitRepository.GetAll();
             List<DestinationDto> destinations = new List<DestinationDto>();
             foreach (Visit visit in visited)
             {
                 destinations.Add(ModelToDto(destinationRepository.Get(visit.DestinationId).Result));
             }
             return destinations;
+        }
+
+        public List<DestinationDto> GetAllDestinationByUserAndCategory(int userId, int CategoryId)
+        {
+            List<Visit> visits = visitRepository.GetByUserId(userId);
+            List<Destination> destinations = destinationRepository.GetAll();
+            List<DestinationDto> destinationDtos = new List<DestinationDto>();
+
+            foreach (Destination destination in destinations)
+            {
+                if (destination.CategoryId == CategoryId)
+                {
+                    foreach (Visit visit in visits)
+                    {
+                        if (visit.DestinationId == destination.Id)
+                        {
+                            destinationDtos.Add(ModelToDto(destination));
+                        }
+                    }
+                }
+            }
+
+            return destinationDtos;
         }
 
         private DestinationDto ModelToDto(Destination destination)

@@ -6,37 +6,37 @@ namespace LasserreDetresTravelAgency.Data.Repositories
     {
         
         /// <summary>
-        /// Ajoute une destination à la base de données en utilisant l'objet modèle passé en paramètre.
+        /// Adds a destination to the database using the model object passed as a parameter.
         /// </summary>
-        /// <param name="destinations">L'objet modèle de destination à ajouter à la base de données.</param>
-        /// <returns>Retourne l'objet modèle de destination qui a été ajouté à la base de données.</returns>
+        /// <param name="destination">The destination model object to add to the database.</param>
+        /// <returns>Returns the destination model object that has been added to the database.</returns>
         Task<Destination> Add(Destination destination);
         
         /// <summary>
-        /// Supprime une destination de la base de données en utilisant son identifiant.
+        /// Deletes a destination from the database using its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de la destination à supprimer de la base de données.</param>
-        /// <returns>Retourne le nombre de modifications effectuées dans la base de données (généralement 1 en cas de succès).</returns>
+        /// <param name="id">The identifier of the destination to delete from the database.</param>
+        /// <returns>Returns the number of modifications made in the database (usually 1 in case of success).</returns>
         Task<int> Delete(int id);
         
         /// <summary>
-        /// Récupère une destination de la base de données en utilisant son identifiant.
+        /// Retrieves a destination from the database using its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de la destination à récupérer depuis la base de données.</param>
-        /// <returns>Retourne l'objet modèle de destination récupéré depuis la base de données.</returns>
+        /// <param name="id">The identifier of the destination to retrieve from the database.</param>
+        /// <returns>Returns the destination model object retrieved from the database.</returns>
         Task<Destination> Get(int id);
         
         /// <summary>
-        /// Récupère la liste de toutes les destinations depuis la base de données.
+        /// Retrieves the list of all destinations from the database.
         /// </summary>
-        /// <returns>Retourne une liste d'objets modèle de destination représentant toutes les destinations disponibles dans la base de données.</returns>
+        /// <returns>Returns a list of destination model objects representing all destinations available in the database.</returns>
         List<Destination> GetAll();
         
         /// <summary>
-        /// Met à jour une destination existante dans la base de données en utilisant l'objet modèle passé en paramètre.
+        /// Updates an existing destination in the database using the model object passed as a parameter.
         /// </summary>
-        /// <param name="destinations">L'objet modèle de destination à mettre à jour dans la base de données.</param>
-        /// <returns>Retourne l'objet modèle de destination qui a été mis à jour dans la base de données.</returns>
+        /// <param name="destination">The destination model object to update in the database.</param>
+        /// <returns>Returns the destination model object that has been updated in the database.</returns>
         Task<Destination> Update(Destination destination);
     }
 }

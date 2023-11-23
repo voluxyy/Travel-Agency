@@ -11,24 +11,24 @@ $primary-color: #0B203D
 
 .searchbar
     grid-area: 1/6/1/8
-    position: relative
-
-    display: flex
 
 #searchbar
     padding-left: 3em
     font-size: 1em
-    font-weight: 600
     height: 35px
     margin-top: 10px
 
-    border: 2px solid $primary-color
+    border: 1px solid $primary-color
     border-radius: 50px
 
     background-image: url('../../assets/search.svg')
     background-repeat: no-repeat
     background-position: 1em center
     background-size: 1.5em
+
+.input_searchbar::placeholder
+    color: $primary-color
+    opacity: .3
 
 a
     text-decoration: none
@@ -56,7 +56,6 @@ a
     display: flex
     align-items: center
     justify-content: center
-    text-align: center
     text-decoration: none
     border-radius: 5px
     height: 100%

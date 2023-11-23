@@ -64,7 +64,6 @@ namespace LasserreDetresTravelAgency.Business.Service
             {
                 Id = category.Id,
                 Title = category.Title,
-                Destinations = (category.Destinations != null) ? category.Destinations : null,
             };
 
             return categoryDto;
@@ -76,7 +75,7 @@ namespace LasserreDetresTravelAgency.Business.Service
             {
                 Id = categoryDto.Id,
                 Title = categoryDto.Title,
-                Destinations = null, // To be adapted if necessary
+                Destinations = null
             };
 
             return category;

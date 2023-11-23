@@ -5,37 +5,37 @@ namespace LasserreDetresTravelAgency.Business.Service
     public interface ICategoryService
     {
         /// <summary>
-        /// Ajoute une nouvelle catégorie.
+        /// Adds a new category.
         /// </summary>
-        /// <param name="dto">Les données de la catégorie à ajouter.</param>
-        /// <returns>Retourne les données de la catégorie ajoutée.</returns>
+        /// <param name="dto">The data of the category to be added.</param>
+        /// <returns>Returns the data of the added category.</returns>
         Task<CategoryDto> Add(CategoryDto dto);
 
         /// <summary>
-        /// Supprime une catégorie en fonction de son identifiant.
+        /// Deletes a category based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de la catégorie à supprimer.</param>
-        /// <returns>Retourne le nombre d'enregistrements supprimés (généralement 1 si la catégorie existait).</returns>
+        /// <param name="id">The identifier of the category to be deleted.</param>
+        /// <returns>Returns the number of deleted records (usually 1 if the category existed).</returns>
         Task<int> Delete(int id);
         
         /// <summary>
-        /// Récupère une catégorie en fonction de son identifiant.
+        /// Retrieves a category based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de la catégorie à récupérer.</param>
-        /// <returns>Retourne les données de la catégorie récupérée.</returns>
+        /// <param name="id">The identifier of the category to retrieve.</param>
+        /// <returns>Returns the data of the retrieved category.</returns>
         Task<CategoryDto> Get(int id);
 
         /// <summary>
-        /// Met à jour une catégorie existante.
+        /// Updates an existing category.
         /// </summary>
-        /// <param name="dto">Les nouvelles données de la catégorie à mettre à jour.</param>
-        /// <returns>Retourne les données de la catégorie mise à jour.</returns>
+        /// <param name="dto">The new data of the category to be updated.</param>
+        /// <returns>Returns the data of the updated category.</returns>
         Task<CategoryDto> Update(CategoryDto dto);
         
         /// <summary>
-        /// Récupère toutes les catégories.
+        /// Retrieves all categories.
         /// </summary>
-        /// <returns>Retourne une liste de toutes les catégories.</returns>
+        /// <returns>Returns a list of all categories.</returns>
         List<CategoryDto> GetAll();
     }
 }

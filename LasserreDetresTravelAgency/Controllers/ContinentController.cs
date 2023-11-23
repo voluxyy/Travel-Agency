@@ -18,13 +18,13 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Ajoute un nouveau continent en utilisant les données fournies dans le corps de la requête.
+        /// Adds a new continent using the data provided in the request body.
         /// </summary>
-        /// <param name="dto">Les données du continent à ajouter.</param>
+        /// <param name="dto">The data of the continent to add.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 201 Created si le continent est ajouté avec succès,
-        /// une réponse de validation problématique en cas d'erreur de validation,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 201 Created response if the continent is successfully added,
+        /// a problematic validation response in case of validation error,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpPost]
         public async Task<ActionResult<ContinentDto>> Add([FromBody] ContinentDto dto)
@@ -45,15 +45,15 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Récupère les détails d'un continent en fonction de son identifiant.
+        /// Retrieves the details of a continent based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant du continent à récupérer.</param>
+        /// <param name="id">The identifier of the continent to retrieve.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si le continent n'existe pas,
-        /// les détails du continent si trouvé,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the continent does not exist,
+        /// the details of the continent if found,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         public async Task<ActionResult<ContinentDto>> Get(int id)
         {
             if (id <= default(int))
@@ -72,16 +72,16 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Met à jour les détails d'un continent en fonction de son identifiant en utilisant les données fournies.
+        /// Updates the details of a continent based on its identifier using the provided data.
         /// </summary>
-        /// <param name="id">L'identifiant du continent à mettre à jour.</param>
-        /// <param name="dto">Les nouvelles données du continent.</param>
+        /// <param name="id">The identifier of the continent to update.</param>
+        /// <param name="dto">The new data of the continent.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si le continent n'existe pas,
-        /// une réponse de validation problématique en cas d'erreur de validation,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the continent does not exist,
+        /// a problematic validation response in case of validation error,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         public async Task<ActionResult<ContinentDto>> Update(int id, ContinentDto dto)
         {
             if (id <= default(int))
@@ -104,15 +104,15 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Supprime un continent en fonction de son identifiant.
+        /// Deletes a continent based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant du continent à supprimer.</param>
+        /// <param name="id">The identifier of the continent to delete.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si le continent n'existe pas,
-        /// une réponse HTTP 200 OK si le continent est supprimé avec succès,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the continent does not exist,
+        /// an HTTP 200 OK response if the continent is successfully deleted,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= default(int))
@@ -132,11 +132,11 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Obtient la liste de tous les continents à partir du service, puis renvoie cette liste en tant qu'objet JSON.
+        /// Gets the list of all continents from the service and then returns this list as a JSON object.
         /// </summary>
         /// <returns>
-        /// Retourne une réponse HTTP contenant la liste des continents sous forme d'objet JSON,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP response containing the list of continents as a JSON object,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpGet("all")]
         public ActionResult<List<ContinentDto>> GetAll()

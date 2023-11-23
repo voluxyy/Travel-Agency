@@ -18,13 +18,13 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Ajoute une nouvelle visite en utilisant les données fournies dans le corps de la requête.
+        /// Adds a new visit using the data provided in the request body.
         /// </summary>
-        /// <param name="dto">Les données de la visite à ajouter.</param>
+        /// <param name="dto">The data of the visit to add.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 201 Created si la visite est ajoutée avec succès,
-        /// une réponse de validation problématique en cas d'erreur de validation,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 201 Created response if the visit is successfully added,
+        /// a problematic validation response in case of validation error,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpPost]
         public async Task<ActionResult<VisitDto>> Add([FromBody] VisitDto dto)
@@ -45,15 +45,15 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Récupère les détails d'une visite en fonction de son identifiant.
+        /// Retrieves the details of a visit based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de la visite à récupérer.</param>
+        /// <param name="id">The identifier of the visit to retrieve.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si la visite n'existe pas,
-        /// les détails de la visite si elle est trouvée,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the visit does not exist,
+        /// the details of the visit if found,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         public async Task<ActionResult<VisitDto>> Get(int id)
         {
             if (id <= default(int))
@@ -72,16 +72,16 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Met à jour les détails d'une visite en fonction de son identifiant en utilisant les données fournies.
+        /// Updates the details of a visit based on its identifier using the provided data.
         /// </summary>
-        /// <param name="id">L'identifiant de la visite à mettre à jour.</param>
-        /// <param name="dto">Les nouvelles données de la visite.</param>
+        /// <param name="id">The identifier of the visit to update.</param>
+        /// <param name="dto">The new data of the visit.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si la visite n'existe pas,
-        /// une réponse de validation problématique en cas d'erreur de validation,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the visit does not exist,
+        /// a problematic validation response in case of validation error,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
-        [HttpPut("{id}")]
+        [HttpPut("update/{id}")]
         public async Task<ActionResult<VisitDto>> Update(int id, VisitDto dto)
         {
             if (id <= default(int))
@@ -104,15 +104,15 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Supprime une visite en fonction de son identifiant.
+        /// Deletes a visit based on its identifier.
         /// </summary>
-        /// <param name="id">L'identifiant de la visite à supprimer.</param>
+        /// <param name="id">The identifier of the visit to delete.</param>
         /// <returns>
-        /// Retourne une réponse HTTP 404 NotFound si la visite n'existe pas,
-        /// une réponse HTTP 200 OK si la visite est supprimée avec succès,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP 404 NotFound response if the visit does not exist,
+        /// an HTTP 200 OK response if the visit is successfully deleted,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= default(int))
@@ -132,11 +132,11 @@ namespace LasserreDetresTravelAgency
         }
 
         /// <summary>
-        /// Obtient la liste de toutes les visites à partir du service, puis renvoie cette liste en tant qu'objet JSON.
+        /// Gets the list of all visits from the service and then returns this list as a JSON object.
         /// </summary>
         /// <returns>
-        /// Retourne une réponse HTTP contenant la liste des visites sous forme d'objet JSON,
-        /// ou une réponse HTTP 500 Internal Server Error en cas d'erreur interne du serveur.
+        /// Returns an HTTP response containing the list of visits as a JSON object,
+        /// or an HTTP 500 Internal Server Error response in case of server internal error.
         /// </returns>
         [HttpGet("all")]
         public ActionResult<List<VisitDto>> GetAll()
